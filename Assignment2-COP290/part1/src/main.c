@@ -11,17 +11,13 @@ static ucontext_t ctx;
 
 static void conjecture(int len, void* options, int sz, void fn(void*)) // Create context and start traversal
 {
-	int* option = (int*) options;
 	int i = 0;
 	getcontext(&ctx);
 	if(i < len)
 	{
 		i++;
-		fn(option+i-1);
+		fn(options+((i-1)*sz));
 	}
-	//options[len] = NULL;
-	//getcontext(&ctx);
-	
 	return;
 }
 
