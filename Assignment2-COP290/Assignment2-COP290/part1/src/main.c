@@ -20,7 +20,10 @@ static void conjecture(int len, void* options, int sz, void fn(void*)){ // Creat
 	return;
 }
 void assert(bool b){ // Restore context if condition fails
-	if (!b) setcontext(&ctx);
+	if (!b)
+	{
+		setcontext(&ctx);
+	}
 	return;
 }
 
