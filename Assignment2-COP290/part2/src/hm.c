@@ -4,7 +4,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-
 struct hashmap_element_s {
   const char *key; // I have changed this!
   void *data;
