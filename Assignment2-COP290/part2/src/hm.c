@@ -70,25 +70,36 @@ int hashmap_put(struct hashmap_s *const hashmap, const char* key, void* data){ /
   
 void* hashmap_get(struct hashmap_s *const hashmap, const char* key){ // Fetch value of a key from hashmap
   
-  int hash_value = hash_func(key);
+  int hash_value = hash_func(key); // Finding out the hash value
   
-  struct list* l = *((hashmap -> table) + hash_value);
-  struct listentry *p = l -> head;
+  struct list* l = *((hashmap -> table) + hash_value); // Pointer to the list corresponding to the hash value
+  struct listentry *p = l -> head; // Pointer to the head of the list
   
-  while(p){
-    struct hashmap_element_s* t = p -> data;
-    if (strcmp(t -> key, key) == 0) return (t -> data);
-    p = p -> next;
+  while(p){ // While p is not NULL
+    struct hashmap_element_s* t = p -> data; // Pointer to the hash element pointed by p -> data
+    if (strcmp(t -> key, key) == 0) return (t -> data); // If the strings are the same then return the data in that hash element
+    p = p -> next; // p is set to p -> next
   }
   
-  int *z = malloc(sizeof(int));
+  int *z = malloc(sizeof(int)); 
   *z = -1;
-  return z;
+  return z; // Return -1 if the key is not found
   
 } 
 
-void hashmap_iterator(struct hashmap_s* const hashmap, 
-                        int (*f)(struct hashmap_element_s *const));  // Execute argument function on each key-value pair in hashmap
+void hashmap_iterator(struct hashmap_s* const hashmap, int (*f)(struct hashmap_element_s *const)){ // Execute argument function on each key-value pair in hashmap
+  
+  for (int i = 0; i < SZ; i++){
+    struct list* l = *((hashmap -> table) + i);
+    struct listentry* p = l -> head;
+    
+    while(p){
+      struct hashmap_element_s* t = p -> data;
+      f(t);
+      p = p -> next;
+    }
+    
+  }
 
 // int acquire_bucket(struct hashmap_s *const hashmap, const char* key);   // Acquire lock on a hashmap slot
 // int release_bucket(struct  hashmap_s *const hashmap, const char* key);   // Release acquired lock
