@@ -7,6 +7,7 @@
 #include<signal.h>
 #include<sys/time.h>
 #include<unistd.h>
+#include "../include/list.h"
 
 void mythread_init();      // Initialize threads list
 ucontext_t* mythread_create(void func(void*), void* arg);  // Create a new thread

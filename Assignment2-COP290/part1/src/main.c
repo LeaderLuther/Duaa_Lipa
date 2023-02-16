@@ -9,8 +9,7 @@
 
 static ucontext_t ctx;
 
-static void conjecture(int len, void* options, int sz, void fn(void*)) // Create context and start traversal
-{
+static void conjecture(int len, void* options, int sz, void fn(void*)){ // Create context and start traversal
 	int i = 0;
 	getcontext(&ctx);
 	if(i < len)
@@ -20,9 +19,7 @@ static void conjecture(int len, void* options, int sz, void fn(void*)) // Create
 	}
 	return;
 }
-
-void assert(bool b) // Restore context if condition fails
-{
+void assert(bool b){ // Restore context if condition fails
 	if (!b)
 	{
 		setcontext(&ctx);
