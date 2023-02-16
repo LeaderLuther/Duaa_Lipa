@@ -27,15 +27,12 @@ void list_rm(struct list* l, struct listentry* e){ // Remove an item from the li
 		
 	}else{ // if head of the list is not e
 		
-		while(p != l -> tail){ //while p is not the tail of the list
-			if (p -> next == e){ // if p -> next is e
-				p -> next = e -> next; // set p -> next as e -> next
-				(p -> next) -> prev = p; // set as (p -> next) -> prev as p
-				break; // break out of the loop
-			}else p = p -> next; // else set p as p -> next
+		(e -> prev) -> next = e -> next;
+		
+		if (e -> next != NULL){
+			(e -> next) -> prev = e -> prev;
 		}
-		// Reaching here means p is now equal to the tail of the list
-		// All elements of the list have been checked and e was not found
+		
 	}
 	
 	free(e); // Free the space
