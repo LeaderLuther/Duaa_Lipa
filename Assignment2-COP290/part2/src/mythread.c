@@ -33,15 +33,12 @@ ucontext_t* mythread_create(void func(void*), void* arg) {
 }
 
 void mythread_join() {
-    printf("%s", "Starting threads\n");
     if (is_empty(threads_list)) return;     // If no threads to run, simply return
 
-    printf("%s", "Starting head thread\n");
     curr_ctx_entry = threads_list->head;    // Will start running the first context in list
 
     while (!is_empty(threads_list)) {
         swapcontext(ctx_main, (ucontext_t*) curr_ctx_entry -> data);  // Start the first context
-        printf("%s", "A thread finished\n");
         struct listentry* x = curr_ctx_entry;
         
         if (curr_ctx_entry->next == NULL) curr_ctx_entry = threads_list->head;  // Set the next context to run
@@ -50,7 +47,6 @@ void mythread_join() {
         list_rm(threads_list, x);      // Once a context finishies, delete the node of that context
                         // Note the deleted node may be different from above node due to "yield" in b/w functions
     }
-    printf("%s", "All threads completed\n");
     return;         // Reaches here when all threads are finished and list is empty
 }
 

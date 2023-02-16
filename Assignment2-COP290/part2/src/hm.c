@@ -1,5 +1,5 @@
 //#include "mythread.h"
-#include "list.h"
+#include "../include/list.h"
 #define SZ 4096
 #include <stdlib.h>
 #include <string.h>
@@ -98,8 +98,7 @@ void hashmap_iterator(struct hashmap_s* const hashmap, int (*f)(struct hashmap_e
       f(t);
       p = p -> next;
     }
-    
   }
-
+}
 // int acquire_bucket(struct hashmap_s *const hashmap, const char* key);   // Acquire lock on a hashmap slot
 // int release_bucket(struct  hashmap_s *const hashmap, const char* key);   // Release acquired lock
