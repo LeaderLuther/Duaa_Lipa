@@ -1,9 +1,11 @@
+#define _XOPEN_SOURCE 600
 #include <stdio.h>
 #include <stdlib.h>
+//#include <sys/ucontext.h>
 #include <ucontext.h>
 #include "../include/list.h"
 
-#define MEM = 4096
+#define MEM 4096
 
 struct list* threads_list;      // A list that stores all the pending/unfinished threads
 ucontext_t* ctx_main;          // This will store where current thread should go back to
@@ -33,15 +35,17 @@ ucontext_t* mythread_create(void func(void*), void* arg) {
 void mythread_join() {
     if (is_empty(threads_list)) return;     // If no threads to run, simply return
 
-    ucontext_t* curr_ctx_entry = threads_list->head;    // Will start running the first context in list
+    struct listentry* x = threads_list -> head;
+    ucontext_t* curr_ctx_entry = x -> data;    // Will start running the first context in list
 
     while (!is_empty(threads_list)) {
-        swapcontext(ctx_main, (ucontext_t*) curr_ctx_entry->data);  // Start the first context
-        list_rm(threads_list, curr_ctx_entry);      // Once a context finishies, delete the node of that context
+        swapcontext(ctx_main, (ucontext_t*) x -> data);  // Start the first context
+        list_rm(threads_list, x);      // Once a context finishies, delete the node of that context
                         // Note the deleted node may be different from above node due to "yield" in b/w functions
         
-        if (curr_ctx_entry->next == NULL) curr_ctx_entry = threads_list->head;  // Set the next context to run
-        else curr_ctx_entry = curr_ctx_entry.next;                          // In a cyclic manner
+        
+        if (x->next == NULL) x = threads_list->head;  // Set the next context to run
+        else x = x -> next;                          // In a cyclic manner
     }
     printf("%s", "All threads completed\n");
     return;         // Reaches here when all threads are finished and list is empty
@@ -52,7 +56,7 @@ void mythread_yield() {
     // Need to change running thread and curr_ctx_entry to next node B
 
     if (curr_ctx_entry->next == NULL) curr_ctx_entry = threads_list->head;  // Set the next context to run
-    else curr_ctx_entry = curr_ctx_entry.next;                          // In a cyclic manner
+    else curr_ctx_entry = curr_ctx_entry -> next;                          // In a cyclic manner
     // Now curr_ctx_entry points to B but thread A is running still
     swapcontext((ucontext_t*)curr_ctx_entry->prev->data, (ucontext_t*)curr_ctx_entry->data);
     // Store current context in context of thread A, and start running thread B
