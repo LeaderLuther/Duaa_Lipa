@@ -13,6 +13,7 @@ void mythread_init();      // Initialize threads list
 ucontext_t* mythread_create(void func(void*), void* arg);  // Create a new thread
 void mythread_join();  // Waits for other thread to complete. It is used in case of dependent threads.
 void mythread_yield();  // Perform context switching here
+void print_thread_list(); 
 
 struct lock {
 	ucontext_t* ctx;

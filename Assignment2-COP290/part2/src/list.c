@@ -73,7 +73,7 @@ struct list* list_new(){ // Return an initialized list
 }  
 
 int is_empty(struct list* l){ // Check if list is empty or not
-	
+	if (l == NULL) return 1;
 	if (l -> head == NULL) return 1; // If head is NULL then list is empty
-	else return 0;
+	return 0;
 }  

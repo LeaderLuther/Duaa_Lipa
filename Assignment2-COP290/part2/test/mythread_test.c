@@ -4,7 +4,12 @@
 
 void func(void* n){
     int* n_point = (int*) n;
-    printf("%d", *n_point);
+    
+    for (int i=0; i<*n_point; i++) {
+    printf("%s %d", "Called with ", *n_point);
+    printf("%d\n", *n_point+i);
+    // mythread_yield();
+    }
 }
 
 int main() {
@@ -13,5 +18,8 @@ int main() {
 
     mythread_create(func, args);
     mythread_create(func, args+sizeof(int));
+
+    print_thread_list();
+    mythread_join();
     return 0;
 }
