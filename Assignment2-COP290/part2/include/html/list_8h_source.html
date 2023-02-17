@@ -65,28 +65,32 @@ $(function() {
 <div class="title">list.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef LIST_H</span></div>
+<a href="list_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef LIST_H</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define LIST_H</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="structlist.html">   16</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structlist.html">list</a> {</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keyword">struct </span><a class="code" href="structlistentry.html">listentry</a>* head;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keyword">struct </span><a class="code" href="structlistentry.html">listentry</a>* tail;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;};</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="structlistentry.html">   21</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structlistentry.html">listentry</a> {</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordtype">void</span> *data;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keyword">struct </span><a class="code" href="structlistentry.html">listentry</a> *prev;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keyword">struct </span><a class="code" href="structlistentry.html">listentry</a> *next;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;};</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keywordtype">void</span> list_rm(<span class="keyword">struct</span> <a class="code" href="structlist.html">list</a>* l, <span class="keyword">struct</span> <a class="code" href="structlistentry.html">listentry</a>* e);    <span class="comment">// Remove an item from the list</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">struct </span><a class="code" href="structlistentry.html">listentry</a>* list_add(<span class="keyword">struct</span> <a class="code" href="structlist.html">list</a>* l, <span class="keywordtype">void</span>* data);  <span class="comment">// Add an item to the list</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">struct </span><a class="code" href="structlist.html">list</a>* list_new();  <span class="comment">// Return an initialized list</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keywordtype">int</span> is_empty(<span class="keyword">struct</span> <a class="code" href="structlist.html">list</a>* l);  <span class="comment">// Check if list is empty or not</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="structlist.html">   52</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structlist.html">list</a> {</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keyword">struct </span><a class="code" href="structlistentry.html">listentry</a>* head;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keyword">struct </span><a class="code" href="structlistentry.html">listentry</a>* tail;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;};</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="structlistentry.html">   57</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structlistentry.html">listentry</a> {</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">void</span> *data;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keyword">struct </span><a class="code" href="structlistentry.html">listentry</a> *prev;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keyword">struct </span><a class="code" href="structlistentry.html">listentry</a> *next;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;};</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="keywordtype">void</span> <a class="code" href="list_8h.html#a2439cbd6a22b846a91b51aad0511157a">list_rm</a>(<span class="keyword">struct</span> <a class="code" href="structlist.html">list</a>* l, <span class="keyword">struct</span> <a class="code" href="structlistentry.html">listentry</a>* e);    </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="keyword">struct </span><a class="code" href="structlistentry.html">listentry</a>* <a class="code" href="list_8h.html#ad0fbfe024706febcb775883a3fc56085">list_add</a>(<span class="keyword">struct</span> <a class="code" href="structlist.html">list</a>* l, <span class="keywordtype">void</span>* data);   </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="keyword">struct </span><a class="code" href="structlist.html">list</a>* <a class="code" href="list_8h.html#adba20e07093a18883c9758ea57296b1a">list_new</a>(); </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="keywordtype">int</span> <a class="code" href="list_8h.html#a4df754b95439918e8813c67771283a40">is_empty</a>(<span class="keyword">struct</span> <a class="code" href="structlist.html">list</a>* l); </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="astructlistentry_html"><div class="ttname"><a href="structlistentry.html">listentry</a></div><div class="ttdef"><b>Definition:</b> list.h:21</div></div>
-<div class="ttc" id="astructlist_html"><div class="ttname"><a href="structlist.html">list</a></div><div class="ttdoc">Creates hashmap in heap.</div><div class="ttdef"><b>Definition:</b> list.h:16</div></div>
+<div class="ttc" id="alist_8h_html_a4df754b95439918e8813c67771283a40"><div class="ttname"><a href="list_8h.html#a4df754b95439918e8813c67771283a40">is_empty</a></div><div class="ttdeci">int is_empty(struct list *l)</div><div class="ttdoc">Check if list is empty or not.</div></div>
+<div class="ttc" id="alist_8h_html_ad0fbfe024706febcb775883a3fc56085"><div class="ttname"><a href="list_8h.html#ad0fbfe024706febcb775883a3fc56085">list_add</a></div><div class="ttdeci">struct listentry * list_add(struct list *l, void *data)</div><div class="ttdoc">Add an item to the list.</div></div>
+<div class="ttc" id="astructlistentry_html"><div class="ttname"><a href="structlistentry.html">listentry</a></div><div class="ttdoc">It is a struct.</div><div class="ttdef"><b>Definition:</b> list.h:57</div></div>
+<div class="ttc" id="alist_8h_html_a2439cbd6a22b846a91b51aad0511157a"><div class="ttname"><a href="list_8h.html#a2439cbd6a22b846a91b51aad0511157a">list_rm</a></div><div class="ttdeci">void list_rm(struct list *l, struct listentry *e)</div><div class="ttdoc">Remove an item from the list.</div></div>
+<div class="ttc" id="alist_8h_html_adba20e07093a18883c9758ea57296b1a"><div class="ttname"><a href="list_8h.html#adba20e07093a18883c9758ea57296b1a">list_new</a></div><div class="ttdeci">struct list * list_new()</div><div class="ttdoc">Return an initialized list.</div></div>
+<div class="ttc" id="astructlist_html"><div class="ttname"><a href="structlist.html">list</a></div><div class="ttdoc">It is a struct .</div><div class="ttdef"><b>Definition:</b> list.h:52</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

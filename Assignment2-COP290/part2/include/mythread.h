@@ -9,17 +9,82 @@
 #include<unistd.h>
 #include "../include/list.h"
 
-void mythread_init();      // Initialize threads list
-ucontext_t* mythread_create(void func(void*), void* arg);  // Create a new thread
-void mythread_join();  // Waits for other thread to complete. It is used in case of dependent threads.
-void mythread_yield();  // Perform context switching here
+/*! \file mythread.h
+    \brief A Documented file.
+    
+    Details.
+*/
+
+/*! \fn void mythread_init()
+    \brief nitialize threads list.
+    
+	Details.
+*/
+
+/*! \fn ucontext_t* mythread_create(void func(void*), void* arg)
+    \brief Create a new thread
+    
+	Details.
+    \param func
+	\param arg
+*/
+
+/*! \fn void mythread_join()
+    \brief Waits for other thread to complete. It is used in case of dependent threads.
+    
+	Details.
+*/
+
+/*! \fn void mythread_yield()
+    \brief Perform context switching here
+    
+	Details.
+*/
+
+/*! \fn void print_thread_list()
+    \brief brief
+    
+	Details.
+*/
+
+/*! \struct lock
+    \brief It is a struct.
+
+    A struct for storing addresses of context.
+    \param ctx Address of context.
+*/
+
+/*! \fn struct lock* lock_new()
+    \brief Return an initialized lock object
+    
+	Details.
+*/
+
+/*! \fn void lock_acquire(struct lock* lk)
+    \brief Set lock. Yield if lock is acquired by some other thread.
+    
+	Details.
+	\param lk
+*/
+
+/*! \fn int lock_release(struct lock* lk)
+    \brief  Release lock
+    
+	Details.
+	\param lk
+*/
+
+void mythread_init();
+ucontext_t* mythread_create(void func(void*), void* arg);
+void mythread_join(); 
+void mythread_yield();  
 void print_thread_list(); 
 
 struct lock {
 	ucontext_t* ctx;
 };
-struct lock* lock_new();   // return an initialized lock object
-void lock_acquire(struct lock* lk);   // Set lock. Yield if lock is acquired by some other thread.
-int lock_release(struct lock* lk);   // Release lock
+struct lock* lock_new();
+void lock_acquire(struct lock* lk);
+int lock_release(struct lock* lk);
 
 #endif

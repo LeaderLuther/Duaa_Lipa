@@ -1,0 +1,94 @@
+\hypertarget{list_8h}{}\doxysection{list.\+h File Reference}
+\label{list_8h}\index{list.h@{list.h}}
+
+
+A Documented file.  
+
+
+This graph shows which files directly or indirectly include this file\+:
+% FIG 0
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structlist}{list}}
+\begin{DoxyCompactList}\small\item\em It is a struct . \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structlistentry}{listentry}}
+\begin{DoxyCompactList}\small\item\em It is a struct. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{list_8h_a2439cbd6a22b846a91b51aad0511157a}{list\+\_\+rm}} (struct \mbox{\hyperlink{structlist}{list}} $\ast$l, struct \mbox{\hyperlink{structlistentry}{listentry}} $\ast$e)
+\begin{DoxyCompactList}\small\item\em Remove an item from the list. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structlistentry}{listentry}} $\ast$ \mbox{\hyperlink{list_8h_ad0fbfe024706febcb775883a3fc56085}{list\+\_\+add}} (struct \mbox{\hyperlink{structlist}{list}} $\ast$l, void $\ast$data)
+\begin{DoxyCompactList}\small\item\em Add an item to the list. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structlist}{list}} $\ast$ \mbox{\hyperlink{list_8h_adba20e07093a18883c9758ea57296b1a}{list\+\_\+new}} ()
+\begin{DoxyCompactList}\small\item\em Return an initialized list. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{list_8h_a4df754b95439918e8813c67771283a40}{is\+\_\+empty}} (struct \mbox{\hyperlink{structlist}{list}} $\ast$l)
+\begin{DoxyCompactList}\small\item\em Check if list is empty or not. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A Documented file. 
+
+Details. 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{list_8h_a4df754b95439918e8813c67771283a40}\label{list_8h_a4df754b95439918e8813c67771283a40}} 
+\index{list.h@{list.h}!is\_empty@{is\_empty}}
+\index{is\_empty@{is\_empty}!list.h@{list.h}}
+\doxysubsubsection{\texorpdfstring{is\_empty()}{is\_empty()}}
+{\footnotesize\ttfamily int is\+\_\+empty (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structlist}{list}} $\ast$}]{l }\end{DoxyParamCaption})}
+
+
+
+Check if list is empty or not. 
+
+Details. 
+\begin{DoxyParams}{Parameters}
+{\em l} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{list_8h_ad0fbfe024706febcb775883a3fc56085}\label{list_8h_ad0fbfe024706febcb775883a3fc56085}} 
+\index{list.h@{list.h}!list\_add@{list\_add}}
+\index{list\_add@{list\_add}!list.h@{list.h}}
+\doxysubsubsection{\texorpdfstring{list\_add()}{list\_add()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structlistentry}{listentry}} $\ast$ list\+\_\+add (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structlist}{list}} $\ast$}]{l,  }\item[{void $\ast$}]{data }\end{DoxyParamCaption})}
+
+
+
+Add an item to the list. 
+
+Details. 
+\begin{DoxyParams}{Parameters}
+{\em l} & \\
+\hline
+{\em data} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{list_8h_adba20e07093a18883c9758ea57296b1a}\label{list_8h_adba20e07093a18883c9758ea57296b1a}} 
+\index{list.h@{list.h}!list\_new@{list\_new}}
+\index{list\_new@{list\_new}!list.h@{list.h}}
+\doxysubsubsection{\texorpdfstring{list\_new()}{list\_new()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structlist}{list}} $\ast$ list\+\_\+new (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Return an initialized list. 
+
+Details. \mbox{\Hypertarget{list_8h_a2439cbd6a22b846a91b51aad0511157a}\label{list_8h_a2439cbd6a22b846a91b51aad0511157a}} 
+\index{list.h@{list.h}!list\_rm@{list\_rm}}
+\index{list\_rm@{list\_rm}!list.h@{list.h}}
+\doxysubsubsection{\texorpdfstring{list\_rm()}{list\_rm()}}
+{\footnotesize\ttfamily void list\+\_\+rm (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structlist}{list}} $\ast$}]{l,  }\item[{struct \mbox{\hyperlink{structlistentry}{listentry}} $\ast$}]{e }\end{DoxyParamCaption})}
+
+
+
+Remove an item from the list. 
+
+Details. 
+\begin{DoxyParams}{Parameters}
+{\em l} & \\
+\hline
+{\em e} & \\
+\hline
+\end{DoxyParams}

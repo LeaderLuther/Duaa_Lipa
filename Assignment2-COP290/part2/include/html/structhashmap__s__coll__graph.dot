@@ -5,10 +5,10 @@ digraph "hashmap_s"
   node [fontname="Helvetica",fontsize="10",shape=record];
   Node1 [label="hashmap_s",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="It is a struct."];
   Node2 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" lk" ,fontname="Helvetica"];
-  Node2 [label="lock",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structlock.html",tooltip=" "];
+  Node2 [label="lock",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structlock.html",tooltip="It is a struct."];
   Node3 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" table" ,fontname="Helvetica"];
-  Node3 [label="list",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structlist.html",tooltip="Creates hashmap in heap."];
+  Node3 [label="list",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structlist.html",tooltip="It is a struct ."];
   Node4 -> Node3 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" head\ntail" ,fontname="Helvetica"];
-  Node4 [label="listentry",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structlistentry.html",tooltip=" "];
+  Node4 [label="listentry",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structlistentry.html",tooltip="It is a struct."];
   Node4 -> Node4 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" prev\nnext" ,fontname="Helvetica"];
 }

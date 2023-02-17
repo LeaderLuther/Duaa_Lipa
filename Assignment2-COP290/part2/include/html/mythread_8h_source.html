@@ -65,7 +65,7 @@ $(function() {
 <div class="title">mythread.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef THREAD_H</span></div>
+<a href="mythread_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef THREAD_H</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define THREAD_H</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include&lt;stdio.h&gt;</span></div>
@@ -76,22 +76,30 @@ $(function() {
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include&lt;unistd.h&gt;</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;../include/list.h&quot;</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keywordtype">void</span> mythread_init();      <span class="comment">// Initialize threads list</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;ucontext_t* mythread_create(<span class="keywordtype">void</span> func(<span class="keywordtype">void</span>*), <span class="keywordtype">void</span>* arg);  <span class="comment">// Create a new thread</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keywordtype">void</span> mythread_join();  <span class="comment">// Waits for other thread to complete. It is used in case of dependent threads.</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keywordtype">void</span> mythread_yield();  <span class="comment">// Perform context switching here</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keywordtype">void</span> print_thread_list(); </div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="structlock.html">   18</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structlock.html">lock</a> {</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    ucontext_t* ctx;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;};</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">struct </span><a class="code" href="structlock.html">lock</a>* lock_new();   <span class="comment">// return an initialized lock object</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keywordtype">void</span> lock_acquire(<span class="keyword">struct</span> <a class="code" href="structlock.html">lock</a>* lk);   <span class="comment">// Set lock. Yield if lock is acquired by some other thread.</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keywordtype">int</span> lock_release(<span class="keyword">struct</span> <a class="code" href="structlock.html">lock</a>* lk);   <span class="comment">// Release lock</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="keywordtype">void</span> <a class="code" href="mythread_8h.html#a208f41a96703a668897f97f212bfaf52">mythread_init</a>();</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;ucontext_t* <a class="code" href="mythread_8h.html#afeeb66ec2603aa297891a339066005b9">mythread_create</a>(<span class="keywordtype">void</span> func(<span class="keywordtype">void</span>*), <span class="keywordtype">void</span>* arg);</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="keywordtype">void</span> <a class="code" href="mythread_8h.html#abf1d6455a1b78b1be5113e76ba8b02dc">mythread_join</a>(); </div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="keywordtype">void</span> <a class="code" href="mythread_8h.html#a8c8049ca40472b6e4fedad5960d6b56d">mythread_yield</a>();  </div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="keywordtype">void</span> <a class="code" href="mythread_8h.html#a09bb3209494e6854a956a6392c557343">print_thread_list</a>(); </div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
+<div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="structlock.html">   83</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structlock.html">lock</a> {</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    ucontext_t* ctx;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;};</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="keyword">struct </span><a class="code" href="structlock.html">lock</a>* <a class="code" href="mythread_8h.html#a168a10005fede78825b8c0c925415add">lock_new</a>();</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="keywordtype">void</span> <a class="code" href="mythread_8h.html#add38fde7157ac3938c4a60b64ed67e9f">lock_acquire</a>(<span class="keyword">struct</span> <a class="code" href="structlock.html">lock</a>* lk);</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="keywordtype">int</span> <a class="code" href="mythread_8h.html#a86df4756182955a6ca389503c93d1822">lock_release</a>(<span class="keyword">struct</span> <a class="code" href="structlock.html">lock</a>* lk);</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="astructlock_html"><div class="ttname"><a href="structlock.html">lock</a></div><div class="ttdef"><b>Definition:</b> mythread.h:18</div></div>
+<div class="ttc" id="amythread_8h_html_a09bb3209494e6854a956a6392c557343"><div class="ttname"><a href="mythread_8h.html#a09bb3209494e6854a956a6392c557343">print_thread_list</a></div><div class="ttdeci">void print_thread_list()</div><div class="ttdoc">brief</div></div>
+<div class="ttc" id="amythread_8h_html_a86df4756182955a6ca389503c93d1822"><div class="ttname"><a href="mythread_8h.html#a86df4756182955a6ca389503c93d1822">lock_release</a></div><div class="ttdeci">int lock_release(struct lock *lk)</div><div class="ttdoc">Release lock.</div></div>
+<div class="ttc" id="amythread_8h_html_abf1d6455a1b78b1be5113e76ba8b02dc"><div class="ttname"><a href="mythread_8h.html#abf1d6455a1b78b1be5113e76ba8b02dc">mythread_join</a></div><div class="ttdeci">void mythread_join()</div><div class="ttdoc">Waits for other thread to complete. It is used in case of dependent threads.</div></div>
+<div class="ttc" id="amythread_8h_html_afeeb66ec2603aa297891a339066005b9"><div class="ttname"><a href="mythread_8h.html#afeeb66ec2603aa297891a339066005b9">mythread_create</a></div><div class="ttdeci">ucontext_t * mythread_create(void func(void *), void *arg)</div><div class="ttdoc">Create a new thread.</div></div>
+<div class="ttc" id="amythread_8h_html_add38fde7157ac3938c4a60b64ed67e9f"><div class="ttname"><a href="mythread_8h.html#add38fde7157ac3938c4a60b64ed67e9f">lock_acquire</a></div><div class="ttdeci">void lock_acquire(struct lock *lk)</div><div class="ttdoc">Set lock. Yield if lock is acquired by some other thread.</div></div>
+<div class="ttc" id="amythread_8h_html_a208f41a96703a668897f97f212bfaf52"><div class="ttname"><a href="mythread_8h.html#a208f41a96703a668897f97f212bfaf52">mythread_init</a></div><div class="ttdeci">void mythread_init()</div><div class="ttdoc">nitialize threads list.</div></div>
+<div class="ttc" id="amythread_8h_html_a8c8049ca40472b6e4fedad5960d6b56d"><div class="ttname"><a href="mythread_8h.html#a8c8049ca40472b6e4fedad5960d6b56d">mythread_yield</a></div><div class="ttdeci">void mythread_yield()</div><div class="ttdoc">Perform context switching here.</div></div>
+<div class="ttc" id="astructlock_html"><div class="ttname"><a href="structlock.html">lock</a></div><div class="ttdoc">It is a struct.</div><div class="ttdef"><b>Definition:</b> mythread.h:83</div></div>
+<div class="ttc" id="amythread_8h_html_a168a10005fede78825b8c0c925415add"><div class="ttname"><a href="mythread_8h.html#a168a10005fede78825b8c0c925415add">lock_new</a></div><div class="ttdeci">struct lock * lock_new()</div><div class="ttdoc">Return an initialized lock object.</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

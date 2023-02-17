@@ -21,26 +21,22 @@ struct \mbox{\hyperlink{structhashmap__s}{hashmap\+\_\+s}}
 \item 
 \mbox{\Hypertarget{hm_8h_a11d818f14508b076eda0cfe98640b7ae}\label{hm_8h_a11d818f14508b076eda0cfe98640b7ae}} 
 \#define \mbox{\hyperlink{hm_8h_a11d818f14508b076eda0cfe98640b7ae}{SZ}}~4096
-\begin{DoxyCompactList}\small\item\em used for memory allocation \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em used for memory allocation. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
 int \mbox{\hyperlink{hm_8h_a4daf13745d2c7e59baf9124b0cd98d46}{hashmap\+\_\+create}} (struct \mbox{\hyperlink{structhashmap__s}{hashmap\+\_\+s}} $\ast$const out\+\_\+hashmap)
 \begin{DoxyCompactList}\small\item\em Initialize a hashmap. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{hm_8h_ae91dcb3550855f201bc443c1635080fb}\label{hm_8h_ae91dcb3550855f201bc443c1635080fb}} 
-int {\bfseries hashmap\+\_\+put} (struct \mbox{\hyperlink{structhashmap__s}{hashmap\+\_\+s}} $\ast$const hashmap, const char $\ast$key, void $\ast$data)
-\item 
-\mbox{\Hypertarget{hm_8h_a051e652a5ba8cd04fefbb15c75b0cbcb}\label{hm_8h_a051e652a5ba8cd04fefbb15c75b0cbcb}} 
-void $\ast$ {\bfseries hashmap\+\_\+get} (struct \mbox{\hyperlink{structhashmap__s}{hashmap\+\_\+s}} $\ast$const hashmap, const char $\ast$key)
-\item 
+int \mbox{\hyperlink{hm_8h_ae91dcb3550855f201bc443c1635080fb}{hashmap\+\_\+put}} (struct \mbox{\hyperlink{structhashmap__s}{hashmap\+\_\+s}} $\ast$const hashmap, const char $\ast$key, void $\ast$data)
+\begin{DoxyCompactList}\small\item\em Set value of the key as data in hashmap. \end{DoxyCompactList}\item 
+void $\ast$ \mbox{\hyperlink{hm_8h_ad2ec112e0af2a195ee9fbf5288dce6bc}{hashmap\+\_\+get}} (struct \mbox{\hyperlink{structhashmap__s}{hashmap\+\_\+s}} $\ast$const hashmap, const char $\ast$key)
+\begin{DoxyCompactList}\small\item\em Fetch value of a key from hashmap. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{hm_8h_ac8294242702e5e43d6a1698cb447c982}{hashmap\+\_\+iterator}} (struct \mbox{\hyperlink{structhashmap__s}{hashmap\+\_\+s}} $\ast$const hashmap, int($\ast$f)(struct \mbox{\hyperlink{structhashmap__element__s}{hashmap\+\_\+element\+\_\+s}} $\ast$const))
 \begin{DoxyCompactList}\small\item\em Execute argument function on each key-\/value pair in hashmap. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{hm_8h_a50bf8746ced6f16c08b02594b508ebe0}\label{hm_8h_a50bf8746ced6f16c08b02594b508ebe0}} 
-int {\bfseries acquire\+\_\+bucket} (struct \mbox{\hyperlink{structhashmap__s}{hashmap\+\_\+s}} $\ast$const hashmap, const char $\ast$key)
-\item 
-\mbox{\Hypertarget{hm_8h_a9d55e477ff997273d8087a3cd31a741f}\label{hm_8h_a9d55e477ff997273d8087a3cd31a741f}} 
-int {\bfseries release\+\_\+bucket} (struct \mbox{\hyperlink{structhashmap__s}{hashmap\+\_\+s}} $\ast$const hashmap, const char $\ast$key)
-\end{DoxyCompactItemize}
+int \mbox{\hyperlink{hm_8h_a50bf8746ced6f16c08b02594b508ebe0}{acquire\+\_\+bucket}} (struct \mbox{\hyperlink{structhashmap__s}{hashmap\+\_\+s}} $\ast$const hashmap, const char $\ast$key)
+\begin{DoxyCompactList}\small\item\em Acquire lock on a hashmap slot. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{hm_8h_a9d55e477ff997273d8087a3cd31a741f}{release\+\_\+bucket}} (struct \mbox{\hyperlink{structhashmap__s}{hashmap\+\_\+s}} $\ast$const hashmap, const char $\ast$key)
+\begin{DoxyCompactList}\small\item\em Release acquired lock. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -49,6 +45,23 @@ A Documented file.
 Details. 
 
 \doxysubsection{Function Documentation}
+\mbox{\Hypertarget{hm_8h_a50bf8746ced6f16c08b02594b508ebe0}\label{hm_8h_a50bf8746ced6f16c08b02594b508ebe0}} 
+\index{hm.h@{hm.h}!acquire\_bucket@{acquire\_bucket}}
+\index{acquire\_bucket@{acquire\_bucket}!hm.h@{hm.h}}
+\doxysubsubsection{\texorpdfstring{acquire\_bucket()}{acquire\_bucket()}}
+{\footnotesize\ttfamily int acquire\+\_\+bucket (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structhashmap__s}{hashmap\+\_\+s}} $\ast$const}]{hashmap,  }\item[{const char $\ast$}]{key }\end{DoxyParamCaption})}
+
+
+
+Acquire lock on a hashmap slot. 
+
+Details. 
+\begin{DoxyParams}{Parameters}
+{\em hashmap} & d. \\
+\hline
+{\em key} & d. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{hm_8h_a4daf13745d2c7e59baf9124b0cd98d46}\label{hm_8h_a4daf13745d2c7e59baf9124b0cd98d46}} 
 \index{hm.h@{hm.h}!hashmap\_create@{hashmap\_create}}
 \index{hashmap\_create@{hashmap\_create}!hm.h@{hm.h}}
@@ -61,7 +74,24 @@ Initialize a hashmap.
 
 Initializes a hashmap and returns 0 on completion. 
 \begin{DoxyParams}{Parameters}
-{\em out\+\_\+hashmap} & Stores address of hashmap here \\
+{\em out\+\_\+hashmap} & Stores address of hashmap here. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{hm_8h_ad2ec112e0af2a195ee9fbf5288dce6bc}\label{hm_8h_ad2ec112e0af2a195ee9fbf5288dce6bc}} 
+\index{hm.h@{hm.h}!hashmap\_get@{hashmap\_get}}
+\index{hashmap\_get@{hashmap\_get}!hm.h@{hm.h}}
+\doxysubsubsection{\texorpdfstring{hashmap\_get()}{hashmap\_get()}}
+{\footnotesize\ttfamily void $\ast$ hashmap\+\_\+get (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structhashmap__s}{hashmap\+\_\+s}} $\ast$const}]{hashmap,  }\item[{const char $\ast$}]{key }\end{DoxyParamCaption})}
+
+
+
+Fetch value of a key from hashmap. 
+
+Returns the address of the value of the key stored in the hashmap or returns N\+U\+LL when key not found. 
+\begin{DoxyParams}{Parameters}
+{\em hashmap} & d. \\
+\hline
+{\em key} & d. \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{hm_8h_ac8294242702e5e43d6a1698cb447c982}\label{hm_8h_ac8294242702e5e43d6a1698cb447c982}} 
@@ -74,10 +104,46 @@ Initializes a hashmap and returns 0 on completion.
 
 Execute argument function on each key-\/value pair in hashmap. 
 
-Executes the argument function on each key-\/value pair in hashmap 
+Executes the argument function on each key-\/value pair in hashmap. 
 \begin{DoxyParams}{Parameters}
-{\em hashmap} & \\
+{\em hashmap} & d. \\
 \hline
-{\em f} & \\
+{\em f} & d. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{hm_8h_ae91dcb3550855f201bc443c1635080fb}\label{hm_8h_ae91dcb3550855f201bc443c1635080fb}} 
+\index{hm.h@{hm.h}!hashmap\_put@{hashmap\_put}}
+\index{hashmap\_put@{hashmap\_put}!hm.h@{hm.h}}
+\doxysubsubsection{\texorpdfstring{hashmap\_put()}{hashmap\_put()}}
+{\footnotesize\ttfamily int hashmap\+\_\+put (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structhashmap__s}{hashmap\+\_\+s}} $\ast$const}]{hashmap,  }\item[{const char $\ast$}]{key,  }\item[{void $\ast$}]{data }\end{DoxyParamCaption})}
+
+
+
+Set value of the key as data in hashmap. 
+
+Hashes key and stores key, value pair, where value is data, also resolving conflicts, returns 0 at completion. 
+\begin{DoxyParams}{Parameters}
+{\em hashmap} & The address to the hashmap. \\
+\hline
+{\em key} & \\
+\hline
+{\em data} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{hm_8h_a9d55e477ff997273d8087a3cd31a741f}\label{hm_8h_a9d55e477ff997273d8087a3cd31a741f}} 
+\index{hm.h@{hm.h}!release\_bucket@{release\_bucket}}
+\index{release\_bucket@{release\_bucket}!hm.h@{hm.h}}
+\doxysubsubsection{\texorpdfstring{release\_bucket()}{release\_bucket()}}
+{\footnotesize\ttfamily int release\+\_\+bucket (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structhashmap__s}{hashmap\+\_\+s}} $\ast$const}]{hashmap,  }\item[{const char $\ast$}]{key }\end{DoxyParamCaption})}
+
+
+
+Release acquired lock. 
+
+Details. 
+\begin{DoxyParams}{Parameters}
+{\em hashmap} & d. \\
+\hline
+{\em key} & d. \\
 \hline
 \end{DoxyParams}
