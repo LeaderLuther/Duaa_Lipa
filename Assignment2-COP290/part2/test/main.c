@@ -23,6 +23,7 @@ int main(int argc, char** argv) {
     for(int i=1;i<argc;i++) {
         mythread_create(readFile, (void *) argv[i]);
     }
+	print_thread_list();
     mythread_join();
 	printf("%s", "threads complete\n");
     hashmap_iterator(&hashmap, printer);
@@ -36,9 +37,9 @@ static void f2 (char* word) {
     int* c1 = (int*) malloc(sizeof(int));
     *c1 = 1;
     if(c != NULL) {
-        for(int i = 0; i < *c; i ++) {
-            mythread_yield();
-        }
+        // for(int i = 0; i < *c; i ++) {
+        //     mythread_yield();
+        // }
         *c1 = *c + 1;
     }
     printf("Inside f2: c1 %d\n", *c1);
@@ -58,7 +59,7 @@ void readFile(void *args) {
 	    // 7. Repeat for all words in the file.
 		printf("%s", "read file called\n");
 		char *filename = (char*)args;
-		printf("%s", filename);
+		printf("%s\n", filename);
 	    FILE *fp = fopen(filename,"r");
 
 	    if(fp==NULL){
@@ -82,4 +83,5 @@ void readFile(void *args) {
 	            i=0;
 	        }
 	    }
+		printf("Readfile ended\n");
 }

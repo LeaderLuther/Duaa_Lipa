@@ -5,7 +5,7 @@
 #include <ucontext.h>
 #include "../include/list.h"
 
-#define MEM 4096
+#define MEM 100
 
 static struct list* threads_list;      // A list that stores all the pending/unfinished threads
 static ucontext_t* ctx_main;          // This will store where current thread should go back to
@@ -28,7 +28,7 @@ ucontext_t* mythread_create(void func(void*), void* arg) {
     new_ctx->uc_link = ctx_main;                     // When finished, context returns to wherever ctx_main is
 
     makecontext(new_ctx,(void (*)(void)) func, 1, arg); // Creates new context which will execute given functipn with givenargs
-
+    
     return list_add(threads_list, (void*) new_ctx)->data;      // Add context pointer to list and return
 }
 
@@ -36,14 +36,15 @@ void mythread_join() {
     if (is_empty(threads_list)) return;     // If no threads to run, simply return
 
     curr_ctx_entry = threads_list->head;    // Will start running the first context in list
-
+    printf("Starting head thread\n");
     while (!is_empty(threads_list)) {
         swapcontext(ctx_main, (ucontext_t*) curr_ctx_entry -> data);  // Start the first context
+        printf("Thread came back here\n");
         struct listentry* x = curr_ctx_entry;
         
         if (curr_ctx_entry->next == NULL) curr_ctx_entry = threads_list->head;  // Set the next context to run
         else curr_ctx_entry = curr_ctx_entry -> next;                          // In a cyclic manner
-
+        printf("Deleting thread\n");
         list_rm(threads_list, x);      // Once a context finishies, delete the node of that context
                         // Note the deleted node may be different from above node due to "yield" in b/w functions
     }
