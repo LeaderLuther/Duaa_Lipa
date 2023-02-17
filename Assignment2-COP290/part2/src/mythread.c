@@ -7,6 +7,10 @@
 
 #define MEM 4096*1024
 
+struct lock {
+	ucontext_t* ctx;
+};
+
 static struct list* threads_list;      // A list that stores all the pending/unfinished threads
 static ucontext_t* ctx_main;          // This will store where current thread should go back to
 static struct listentry* curr_ctx_entry = NULL;    // The listentry of the context which is currently running
@@ -39,9 +43,8 @@ void mythread_join() {
     while (!is_empty(threads_list)) {
         curr_ctx_entry = threads_list->head;    // Will start running the first context in list
         swapcontext(ctx_main, (ucontext_t*) curr_ctx_entry -> data);  // Start the first context
-        struct listentry* x = curr_ctx_entry;
 
-        list_rm(threads_list, x);      // Once a context finishies, delete the node of that context
+        list_rm(threads_list, curr_ctx_entry);      // Once a context finishies, delete the node of that context
                     
     }
     return;         // Reaches here when all threads are finished and list is empty
@@ -50,13 +53,39 @@ void mythread_join() {
 void mythread_yield() {
     // If threadA is running currently, curr_ctx_entry points to A
     // Need to change running thread and curr_ctx_entry to next node B
+    struct listentry* prev_ctx_entry = curr_ctx_entry;    // Temporarily save entry of thread A
     if (curr_ctx_entry->next == NULL) curr_ctx_entry = threads_list->head;  // Set the next context to run
     else curr_ctx_entry = curr_ctx_entry -> next;                          // In a cyclic manner
     // Now curr_ctx_entry points to B but thread A is running still
-    swapcontext((ucontext_t*)curr_ctx_entry->prev->data, (ucontext_t*)curr_ctx_entry->data);
+    swapcontext((ucontext_t*)prev_ctx_entry->data, (ucontext_t*)curr_ctx_entry->data);
     // Store current context in context of thread A, and start running thread B
     // listenty of thread A is prev of listentry of thread B
     return;
+}
+
+struct lock* lock_new(){
+    struct lock* new_lk = malloc(sizeof(struct lock));
+    new_lk->ctx = NULL;
+
+    return new_lk;
+}
+
+void lock_acquire(struct lock* lk) {
+    while (lk->ctx != NULL){
+        printf("Lock taken, yielding\n");
+        mythread_yield();
+    }
+    printf("Lock not taken\n");
+    if (curr_ctx_entry == NULL) printf("Null context\n");
+    lk->ctx = (ucontext_t*) (curr_ctx_entry->data);
+    printf("Lock set\n");
+}
+
+int lock_release(struct lock* lk) {
+    if (lk->ctx == NULL) return 0;
+    
+    lk->ctx = NULL;
+    return 1;
 }
 
 void print_thread_list() {
