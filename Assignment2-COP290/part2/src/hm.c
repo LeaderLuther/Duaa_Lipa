@@ -1,5 +1,5 @@
-//#include "mythread.h"
 #include "../include/list.h"
+#include "../include/mythread.h"
 #define SZ 4096
 #include <stdlib.h>
 #include <string.h>
@@ -11,7 +11,7 @@ struct hashmap_element_s {
 
 struct hashmap_s {
   struct list* table[SZ];
-  // struct lock* lk[SZ];
+  struct lock* lk[SZ];
 };
 
 int hash_func(const char* key){ // Hash function for the hash map
@@ -37,6 +37,7 @@ int hashmap_create(struct hashmap_s *const out_hashmap){ // Initialize a hashmap
   
   for (int i = 0; i < SZ; i++){ // For i from 0 to 4095 (size of table)
     *((out_hashmap -> table) + i) = list_new() ; // ith index of the table contains pointer to an empty list now
+    out_hashmap->lk[i] = lock_new();
   }
   
   return 0; // No reason for this to fail, hence. no return -1
@@ -102,5 +103,16 @@ void hashmap_iterator(struct hashmap_s* const hashmap, int (*f)(struct hashmap_e
     }
   }
 }
-// int acquire_bucket(struct hashmap_s *const hashmap, const char* key);   // Acquire lock on a hashmap slot
-// int release_bucket(struct  hashmap_s *const hashmap, const char* key);   // Release acquired lock
+int acquire_bucket(struct hashmap_s *const hashmap, const char* key){   // Acquire lock on a hashmap slot
+  printf("Hashing key: %s \n", key);
+  printf("Hashing key: %d \n", hash_func(key));
+  int hash_value = hash_func(key);
+  printf("%d\n", hash_value);
+
+  lock_acquire(hashmap->lk[hash_value]);
+}
+int release_bucket(struct  hashmap_s *const hashmap, const char* key){   // Release acquired lock
+  int hash_value = hash_func(key);
+
+  return lock_release(hashmap->lk[hash_value]); 
+}

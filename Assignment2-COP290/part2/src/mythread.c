@@ -7,6 +7,10 @@
 
 #define MEM 4096*1024
 
+struct lock {
+	ucontext_t* ctx;
+};
+
 static struct list* threads_list;      // A list that stores all the pending/unfinished threads
 static ucontext_t* ctx_main;          // This will store where current thread should go back to
 static struct listentry* curr_ctx_entry = NULL;    // The listentry of the context which is currently running
@@ -57,6 +61,31 @@ void mythread_yield() {
     // Store current context in context of thread A, and start running thread B
     // listenty of thread A is prev of listentry of thread B
     return;
+}
+
+struct lock* lock_new(){
+    struct lock* new_lk = malloc(sizeof(struct lock));
+    new_lk->ctx = NULL;
+
+    return new_lk;
+}
+
+void lock_acquire(struct lock* lk) {
+    while (lk->ctx != NULL){
+        printf("Lock taken, yielding\n");
+        mythread_yield();
+    }
+    printf("Lock not taken\n");
+    if (curr_ctx_entry == NULL) printf("Null context\n");
+    lk->ctx = (ucontext_t*) (curr_ctx_entry->data);
+    printf("Lock set\n");
+}
+
+int lock_release(struct lock* lk) {
+    if (lk->ctx == NULL) return 0;
+    
+    lk->ctx = NULL;
+    return 1;
 }
 
 void print_thread_list() {
