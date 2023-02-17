@@ -43,15 +43,20 @@ int hashmap_create(struct hashmap_s *const out_hashmap){ // Initialize a hashmap
 }   
 
 int hashmap_put(struct hashmap_s *const hashmap, const char* key, void* data){ // Set value of the key as data in hashmap. You can use any method to resolve conflicts. Also write your own hashing function
-  
-  int hash_value = hash_func(key); // Calculating the hash value for the given key
+  char* mapKey = malloc(sizeof(key));
+
+  for (int i=0; i < sizeof(mapKey)/sizeof(char); i++) {
+    mapKey[i] = key[i];
+  }
+
+  int hash_value = hash_func(mapKey); // Calculating the hash value for the given key
 
   struct list* l = *((hashmap -> table) + hash_value); // Pointer to the linked list at the corresponding hash value in the table
   struct listentry *p = l -> head; // Pointer to the head of that list
   
   while(p){ // While p is not NULL
     struct hashmap_element_s* x = p -> data; // Pointer to the hashmap element at p
-    if (strcmp(x -> key, key) == 0){ // If key of the hashmap element matches the argument key
+    if (strcmp(x -> key, mapKey) == 0){ // If key of the hashmap element matches the argument key
       x -> data = data; // Update the data for the key
       return 0; // Successful update
     }
@@ -60,7 +65,7 @@ int hashmap_put(struct hashmap_s *const hashmap, const char* key, void* data){ /
   
   // Code comes here when the key doesn't already exist
   struct hashmap_element_s *t = malloc(sizeof(struct hashmap_element_s)); // Declaring the memory for the hashmap element
-  t -> key = key; // t -> key is set as key
+  t -> key = mapKey; // t -> key is set as key
   t -> data = data; // t -> data is set as data
     
   list_add(*((hashmap -> table) + hash_value), t); // Append the hashmap element to the corresponding hash value list
@@ -80,10 +85,7 @@ void* hashmap_get(struct hashmap_s *const hashmap, const char* key){ // Fetch va
     if (strcmp(t -> key, key) == 0) return (t -> data); // If the strings are the same then return the data in that hash element
     p = p -> next; // p is set to p -> next
   }
-  
-  int *z = malloc(sizeof(int)); 
-  *z = -1;
-  return z; // Return -1 if the key is not found
+  return NULL; // Return NULL if the key is not found
   
 } 
 
