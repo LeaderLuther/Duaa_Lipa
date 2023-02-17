@@ -10,7 +10,6 @@ void readFile(void *);
 struct hashmap_s hashmap;
 
 int printer(struct hashmap_element_s *const e) {
-	printf("%s", "printer called\n");
     int* count = (int*) e->data;
     printf("key %s, count %d\n", e->key, *count);
     return 0;
@@ -23,9 +22,7 @@ int main(int argc, char** argv) {
     for(int i=1;i<argc;i++) {
         mythread_create(readFile, (void *) argv[i]);
     }
-	print_thread_list();
     mythread_join();
-	printf("%s", "threads complete\n");
     hashmap_iterator(&hashmap, printer);
     printf("Testing threads done!\n\n");
 }
@@ -57,15 +54,10 @@ void readFile(void *args) {
     	// 5. Set new count of the word as x+1.
     	// 6. Release lock
 	    // 7. Repeat for all words in the file.
-		printf("%s", "read file called\n");
 		char *filename = (char*)args;
-		printf("%s\n", filename);
 	    FILE *fp = fopen(filename,"r");
-
-	    if(fp==NULL){
-			printf("%s", "File null");
+	    if(fp==NULL)
 	        return;
-		}
 	    char ch;
 	    int i=0;
 	    char arr[25];
@@ -76,12 +68,10 @@ void readFile(void *args) {
 	            i++;
 	        } else {
 	            arr[i] = 0;
-				printf("%s", "calling f2\n");
 	            f2(arr);
 	            for(int j=0;j<25;j++)
 	                arr[j]='\0';
 	            i=0;
 	        }
 	    }
-		printf("Readfile ended\n");
 }

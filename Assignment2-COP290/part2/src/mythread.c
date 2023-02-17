@@ -5,7 +5,7 @@
 #include <ucontext.h>
 #include "../include/list.h"
 
-#define MEM 100
+#define MEM 4096*1024
 
 static struct list* threads_list;      // A list that stores all the pending/unfinished threads
 static ucontext_t* ctx_main;          // This will store where current thread should go back to
@@ -24,7 +24,7 @@ ucontext_t* mythread_create(void func(void*), void* arg) {
     getcontext(new_ctx);        // Initializing
 
     new_ctx->uc_stack.ss_sp = stack1;
-    new_ctx->uc_stack.ss_size = sizeof(stack1);     // Assigning new stack to the new context
+    new_ctx->uc_stack.ss_size = MEM*sizeof(char);     // Assigning new stack to the new context
     new_ctx->uc_link = ctx_main;                     // When finished, context returns to wherever ctx_main is
 
     makecontext(new_ctx,(void (*)(void)) func, 1, arg); // Creates new context which will execute given functipn with givenargs
@@ -36,17 +36,13 @@ void mythread_join() {
     if (is_empty(threads_list)) return;     // If no threads to run, simply return
 
     curr_ctx_entry = threads_list->head;    // Will start running the first context in list
-    printf("Starting head thread\n");
     while (!is_empty(threads_list)) {
+        curr_ctx_entry = threads_list->head;    // Will start running the first context in list
         swapcontext(ctx_main, (ucontext_t*) curr_ctx_entry -> data);  // Start the first context
-        printf("Thread came back here\n");
         struct listentry* x = curr_ctx_entry;
-        
-        if (curr_ctx_entry->next == NULL) curr_ctx_entry = threads_list->head;  // Set the next context to run
-        else curr_ctx_entry = curr_ctx_entry -> next;                          // In a cyclic manner
-        printf("Deleting thread\n");
+
         list_rm(threads_list, x);      // Once a context finishies, delete the node of that context
-                        // Note the deleted node may be different from above node due to "yield" in b/w functions
+                    
     }
     return;         // Reaches here when all threads are finished and list is empty
 }
@@ -54,7 +50,6 @@ void mythread_join() {
 void mythread_yield() {
     // If threadA is running currently, curr_ctx_entry points to A
     // Need to change running thread and curr_ctx_entry to next node B
-    printf("%s", "switching to next thread\n");
     if (curr_ctx_entry->next == NULL) curr_ctx_entry = threads_list->head;  // Set the next context to run
     else curr_ctx_entry = curr_ctx_entry -> next;                          // In a cyclic manner
     // Now curr_ctx_entry points to B but thread A is running still
@@ -70,7 +65,6 @@ void print_thread_list() {
     struct listentry* cur = threads_list->head;
 
     while (cur != NULL) {
-        printf("%s", "Thread here\n");
         cur = cur->next;
     }
 }
