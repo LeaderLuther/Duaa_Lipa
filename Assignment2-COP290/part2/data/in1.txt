@@ -1,6 +1,4 @@
 hello
-world
-test
 hello
 hello
-test
+hello

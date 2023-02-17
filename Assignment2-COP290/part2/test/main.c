@@ -34,9 +34,9 @@ static void f2 (char* word) {
     int* c1 = (int*) malloc(sizeof(int));
     *c1 = 1;
     if(c != NULL) {
-        // for(int i = 0; i < *c; i ++) {
-        //     mythread_yield();
-        // }
+        for(int i = 0; i < *c; i ++) {
+            mythread_yield();
+        }
         *c1 = *c + 1;
     }
     printf("Inside f2: c1 %d\n", *c1);

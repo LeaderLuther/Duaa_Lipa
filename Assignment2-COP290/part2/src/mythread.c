@@ -39,9 +39,8 @@ void mythread_join() {
     while (!is_empty(threads_list)) {
         curr_ctx_entry = threads_list->head;    // Will start running the first context in list
         swapcontext(ctx_main, (ucontext_t*) curr_ctx_entry -> data);  // Start the first context
-        struct listentry* x = curr_ctx_entry;
 
-        list_rm(threads_list, x);      // Once a context finishies, delete the node of that context
+        list_rm(threads_list, curr_ctx_entry);      // Once a context finishies, delete the node of that context
                     
     }
     return;         // Reaches here when all threads are finished and list is empty
@@ -50,10 +49,11 @@ void mythread_join() {
 void mythread_yield() {
     // If threadA is running currently, curr_ctx_entry points to A
     // Need to change running thread and curr_ctx_entry to next node B
+    struct listentry* prev_ctx_entry = curr_ctx_entry;    // Temporarily save entry of thread A
     if (curr_ctx_entry->next == NULL) curr_ctx_entry = threads_list->head;  // Set the next context to run
     else curr_ctx_entry = curr_ctx_entry -> next;                          // In a cyclic manner
     // Now curr_ctx_entry points to B but thread A is running still
-    swapcontext((ucontext_t*)curr_ctx_entry->prev->data, (ucontext_t*)curr_ctx_entry->data);
+    swapcontext((ucontext_t*)prev_ctx_entry->data, (ucontext_t*)curr_ctx_entry->data);
     // Store current context in context of thread A, and start running thread B
     // listenty of thread A is prev of listentry of thread B
     return;
