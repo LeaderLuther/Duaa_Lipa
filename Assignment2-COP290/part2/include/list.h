@@ -1,5 +1,18 @@
 #ifndef LIST_H
 #define LIST_H
+
+/** @brief Creates hashmap in heap.
+
+    A hashmap is created in heap, with functions create, put, get, iterator and locks for threading
+    @author OM DEHLAN, SARWAGYA PRASAD, AMAIYA SINGHAL
+    @date Feb 2023
+    */
+
+/*! \struct list
+    \brief It is a struct 
+
+    A struct for storing addresses of key, value pair.
+*/
 struct list {
 	struct listentry* head;
 	struct listentry* tail;
