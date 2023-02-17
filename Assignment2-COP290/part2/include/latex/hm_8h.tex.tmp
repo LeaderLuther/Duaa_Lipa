@@ -1,0 +1,83 @@
+\hypertarget{hm_8h}{}\doxysection{hm.\+h File Reference}
+\label{hm_8h}\index{hm.h@{hm.h}}
+
+
+A Documented file.  
+
+
+{\ttfamily \#include \char`\"{}mythread.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}list.\+h\char`\"{}}\newline
+Include dependency graph for hm.\+h\+:
+% FIG 0
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structhashmap__element__s}{hashmap\+\_\+element\+\_\+s}}
+\begin{DoxyCompactList}\small\item\em It is a struct. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structhashmap__s}{hashmap\+\_\+s}}
+\begin{DoxyCompactList}\small\item\em It is a struct. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{hm_8h_a11d818f14508b076eda0cfe98640b7ae}\label{hm_8h_a11d818f14508b076eda0cfe98640b7ae}} 
+\#define \mbox{\hyperlink{hm_8h_a11d818f14508b076eda0cfe98640b7ae}{SZ}}~4096
+\begin{DoxyCompactList}\small\item\em used for memory allocation \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{hm_8h_a4daf13745d2c7e59baf9124b0cd98d46}{hashmap\+\_\+create}} (struct \mbox{\hyperlink{structhashmap__s}{hashmap\+\_\+s}} $\ast$const out\+\_\+hashmap)
+\begin{DoxyCompactList}\small\item\em Initialize a hashmap. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{hm_8h_ae91dcb3550855f201bc443c1635080fb}\label{hm_8h_ae91dcb3550855f201bc443c1635080fb}} 
+int {\bfseries hashmap\+\_\+put} (struct \mbox{\hyperlink{structhashmap__s}{hashmap\+\_\+s}} $\ast$const hashmap, const char $\ast$key, void $\ast$data)
+\item 
+\mbox{\Hypertarget{hm_8h_a051e652a5ba8cd04fefbb15c75b0cbcb}\label{hm_8h_a051e652a5ba8cd04fefbb15c75b0cbcb}} 
+void $\ast$ {\bfseries hashmap\+\_\+get} (struct \mbox{\hyperlink{structhashmap__s}{hashmap\+\_\+s}} $\ast$const hashmap, const char $\ast$key)
+\item 
+void \mbox{\hyperlink{hm_8h_ac8294242702e5e43d6a1698cb447c982}{hashmap\+\_\+iterator}} (struct \mbox{\hyperlink{structhashmap__s}{hashmap\+\_\+s}} $\ast$const hashmap, int($\ast$f)(struct \mbox{\hyperlink{structhashmap__element__s}{hashmap\+\_\+element\+\_\+s}} $\ast$const))
+\begin{DoxyCompactList}\small\item\em Execute argument function on each key-\/value pair in hashmap. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{hm_8h_a50bf8746ced6f16c08b02594b508ebe0}\label{hm_8h_a50bf8746ced6f16c08b02594b508ebe0}} 
+int {\bfseries acquire\+\_\+bucket} (struct \mbox{\hyperlink{structhashmap__s}{hashmap\+\_\+s}} $\ast$const hashmap, const char $\ast$key)
+\item 
+\mbox{\Hypertarget{hm_8h_a9d55e477ff997273d8087a3cd31a741f}\label{hm_8h_a9d55e477ff997273d8087a3cd31a741f}} 
+int {\bfseries release\+\_\+bucket} (struct \mbox{\hyperlink{structhashmap__s}{hashmap\+\_\+s}} $\ast$const hashmap, const char $\ast$key)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A Documented file. 
+
+Details. 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{hm_8h_a4daf13745d2c7e59baf9124b0cd98d46}\label{hm_8h_a4daf13745d2c7e59baf9124b0cd98d46}} 
+\index{hm.h@{hm.h}!hashmap\_create@{hashmap\_create}}
+\index{hashmap\_create@{hashmap\_create}!hm.h@{hm.h}}
+\doxysubsubsection{\texorpdfstring{hashmap\_create()}{hashmap\_create()}}
+{\footnotesize\ttfamily int hashmap\+\_\+create (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structhashmap__s}{hashmap\+\_\+s}} $\ast$const}]{out\+\_\+hashmap }\end{DoxyParamCaption})}
+
+
+
+Initialize a hashmap. 
+
+Initializes a hashmap and returns 0 on completion. 
+\begin{DoxyParams}{Parameters}
+{\em out\+\_\+hashmap} & Stores address of hashmap here \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{hm_8h_ac8294242702e5e43d6a1698cb447c982}\label{hm_8h_ac8294242702e5e43d6a1698cb447c982}} 
+\index{hm.h@{hm.h}!hashmap\_iterator@{hashmap\_iterator}}
+\index{hashmap\_iterator@{hashmap\_iterator}!hm.h@{hm.h}}
+\doxysubsubsection{\texorpdfstring{hashmap\_iterator()}{hashmap\_iterator()}}
+{\footnotesize\ttfamily void hashmap\+\_\+iterator (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structhashmap__s}{hashmap\+\_\+s}} $\ast$const}]{hashmap,  }\item[{int($\ast$)(struct \mbox{\hyperlink{structhashmap__element__s}{hashmap\+\_\+element\+\_\+s}} $\ast$const)}]{f }\end{DoxyParamCaption})}
+
+
+
+Execute argument function on each key-\/value pair in hashmap. 
+
+Executes the argument function on each key-\/value pair in hashmap 
+\begin{DoxyParams}{Parameters}
+{\em hashmap} & \\
+\hline
+{\em f} & \\
+\hline
+\end{DoxyParams}
