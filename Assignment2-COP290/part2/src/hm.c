@@ -104,10 +104,7 @@ void hashmap_iterator(struct hashmap_s* const hashmap, int (*f)(struct hashmap_e
   }
 }
 int acquire_bucket(struct hashmap_s *const hashmap, const char* key){   // Acquire lock on a hashmap slot
-  printf("Hashing key: %s \n", key);
-  printf("Hashing key: %d \n", hash_func(key));
   int hash_value = hash_func(key);
-  printf("%d\n", hash_value);
 
   lock_acquire(hashmap->lk[hash_value]);
 }

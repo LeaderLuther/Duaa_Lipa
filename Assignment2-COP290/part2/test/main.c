@@ -30,7 +30,6 @@ int main(int argc, char** argv) {
 static void f2 (char* word) {
     printf("Inside f2 %s\n", word);
     acquire_bucket(&hashmap, word);
-	printf("Acquired bucket\n");
     int* c = (int*) hashmap_get(&hashmap, word);
     int* c1 = (int*) malloc(sizeof(int));
     *c1 = 1;

@@ -72,13 +72,9 @@ struct lock* lock_new(){
 
 void lock_acquire(struct lock* lk) {
     while (lk->ctx != NULL){
-        printf("Lock taken, yielding\n");
         mythread_yield();
     }
-    printf("Lock not taken\n");
-    if (curr_ctx_entry == NULL) printf("Null context\n");
     lk->ctx = (ucontext_t*) (curr_ctx_entry->data);
-    printf("Lock set\n");
 }
 
 int lock_release(struct lock* lk) {
