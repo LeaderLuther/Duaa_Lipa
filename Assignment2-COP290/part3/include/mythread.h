@@ -10,68 +10,66 @@
 
 
 /*! \file mythread.h
-    \brief A Documented file.
+    \brief Implementation of threads using contexts
     
-    Details.
+    Contains functions related to running and managing threads to be ran concurrently using
+    context from ucontext library.
 */
 
 /*! \fn void mythread_init()
-    \brief nitialize threads list.
+    \brief Initialize threads list.
     
-	Details.
+	Creates and allocates memory for an empty list that is global to the mythread functions
 */
 
 /*! \fn ucontext_t* mythread_create(void func(void*), void* arg)
     \brief Create a new thread
     
-	Details.
-    \param func
-	\param arg
+	Creates a new thread by creating a new context and adding it to the threads list.
+    Returns pointer to the newly created context 
+    \param func Pointer to the function/routine that needs to be ran in this thread
+	\param arg Pointer to the arguments that needs to be passed to the function/routine
 */
 
 /*! \fn void mythread_join()
     \brief Waits for other thread to complete. It is used in case of dependent threads.
     
-	Details.
+	Starts running all the threads and ends only when all current threads are completed
 */
 
 /*! \fn void mythread_yield()
-    \brief Perform context switching here
+    \brief Performs context switching
     
-	Details.
-*/
-
-/*! \fn void print_thread_list()
-    \brief brief
-    
-	Details.
+	Switches thread from current thread to the next thread in threads list in a cyclic form,
+    i.e., if the current thread is last in the list, switches to first thread in list, otherwise
+    switches to next context 
 */
 
 /*! \struct lock
-    \brief It is a struct.
+    \brief Lock struct which includes a pointer the context which has acquired this lock
 
-    A struct for storing addresses of context.
-    \param ctx Address of context.
+    \param ctx Pointer to the context which has acquired this lock. Is NULL if lock is released
 */
 
 /*! \fn struct lock* lock_new()
-    \brief Return an initialized lock object
+    \brief Initializes a lock struct.
     
-	Details.
+	Creates and allocates memory for a new lock struct. Returns the newly created lock
 */
 
 /*! \fn void lock_acquire(struct lock* lk)
-    \brief Set lock. Yield if lock is acquired by some other thread.
+    \brief Attempts to acquire the lock, yields if already acquired
     
-	Details.
-	\param lk
+	If the passed lock is not acquired by any other thread, acquires this lock by pointing lock context
+    to current context. If it is aquired by another thread, then yields to other threads.
+	\param lk Pointer to the lock that needs to be accessed
 */
 
 /*! \fn int lock_release(struct lock* lk)
-    \brief  Release lock
+    \brief  Releases the lock
     
-	Details.
-	\param lk
+	Releases passed lock to be used by other threads. Sets context pointed by lock to NULL
+	\param lk Pointer to the lock that needs to be accessed
 */
 
 

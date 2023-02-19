@@ -3,51 +3,54 @@
 
 
 /*! \file list.h
-    \brief A Documented file.
+    \brief Header file for doubly linked list.
     
-    Details.
+    Contains implementation of a doubly linked list and related functions.
 */
 
 /*! \struct list
-    \brief It is a struct .
+    \brief The list struct corresponding to a doubly linked lists.
 
-    A struct for storing addresses of key, value pair.
+    \param head Pointer to the first listentry node
+    \param tail Pointer to the last listentry node
 */
 
 /*! \struct listentry
-    \brief It is a struct.
+    \brief The listentry struct contains data and pointers to adjacent nodes.
 
-    A struct for storing addresses of node, next node and previous node.
+    \param data Pointer to the data in the listentry node
+    \param next Pointer to the next listentry in list
+    \param prev Pointer to the previous listentry in list
 */
 
 /*! \fn void list_rm(struct list* l, struct listentry* e)
-    \brief Remove an item from the list.
+    \brief Removes a listentry node from list
     
-	Details.
-    \param l
-	\param e
+	Deletes a listentry node from the list and frees it's memory
+    \param l Pointer to the list which needs to be accessed
+	\param e Pointer to the listentry node which needs to be deleted
 */
 
 /*! \fn struct listentry* list_add(struct list* l, void* data)
-    \brief Add an item to the list.
+    \brief Adds a new listentry node at the tail of list
     
-	Details.
-    \param l
-	\param data
+	Creates and allocates memory for a new listentry node containing the passed data,
+    and adds it to the end of the list. Returns pointer to the newly added listentry node.
+    \param l Pointer to the list which needs to be accessed
+	\param data Pointer to the data which needs to be inserted
 */
 
 /*! \fn struct list* list_new()
-    \brief Return an initialized list.
+    \brief Initializes a new list.
     
-	Details.
+	Creates and allocates memory to a new empty list. Returns pointer to the newly created list
 */
 
 /*! \fn int is_empty(struct list* l)
     \brief Check if list is empty or not.
     
-	Details.
-    \param l
-
+	Returns 1 if list is empty, 0 otherwise
+    \param l Pointer to the list which needs to be accessed
 */
 
 

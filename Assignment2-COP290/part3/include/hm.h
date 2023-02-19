@@ -3,17 +3,19 @@
 
 
 /*! \file hm.h
-    \brief A Documented file.
+    \brief A header file containing implementation of Hashmap compatible with threads and locks.
     
-    Details.
+    This file contains a struct and related functions to use a hashmap. It also includes acquire_bucket
+    and release_bucket functions to be used when multiple threads use a hashmap, implementing locks for
+    each list in the hashmap.
 */
 
 /*! \def SZ
-    \brief used for memory allocation.
+    \brief Macro for defining hashmap Size
 */
 
 /*! \struct hashmap_element_s
-    \brief It is a struct.
+    \brief A struct containing a key-value pair
 
     A struct for storing addresses of key, value pair.
     \param key Address of key string.
@@ -21,9 +23,12 @@
 */
 
 /*! \struct hashmap_s
-    \brief It is a struct.
+    \brief It defines a hashmap struct.
 
-    A struct for storing address of struct list and struct lock.
+    Hashmap struct contains two arrays: 
+        table - containing SZ linked lists containing the key-value pairs hashmap_elemnt_s.
+        lk - Array of length SZ containing locks for each linked list in table.
+
     \param table Address of struct list.
     \param lk Address of struct lock.
 */
@@ -31,49 +36,56 @@
 /*! \fn int hashmap_create(struct hashmap_s *const out_hashmap)
     \brief Initialize a hashmap.
     
-    Initializes a hashmap and returns 0 on completion.
-    \param out_hashmap Stores address of hashmap here.
+    Initializes a hashmap by allocating memory for each linked list in table and lock in lk.
+    Returns 0 on successful creation, 1 if an error is encountered.
+    \param out_hashmap Stores and returns address of hashmap here.
 */
 
 /*! \fn int hashmap_put(struct hashmap_s *const hashmap, const char *key,void *data)
     \brief Set value of the key as data in hashmap.
 
-    Hashes key and stores key, value pair, where value is data, also resolving conflicts, returns 0 at completion.
-    \param hashmap The address to the hashmap.
-    \param key
-    \param data
+    If key already exists then updates the key-value pair to new data,
+    If key does not exist, creates a new listentry for the key-value pair.
+    returns 0 at completion.
+
+    \param hashmap Pointer to the hashmap.
+    \param key key string of the pair.
+    \param data Pointer to the data value of the pair.
 */
 
 /*! \fn void* hashmap_get(struct hashmap_s *const hashmap, const char *key)
     \brief Fetch value of a key from hashmap.
 
-    Returns the address of the value of the key stored in the hashmap or returns NULL when key not found.
-    \param hashmap d.
-    \param key d.
+    Returns a pointer to the value of the data corresponding to key passed stored in the hashmap 
+    or returns NULL when key not found.
+    \param hashmap Pointer to hashmap which needs to be accessed
+    \param key Key string which is to be searched
 */
 
 /*! \fn void hashmap_iterator(struct hashmap_s* const hashmap, int (*f)(struct hashmap_element_s *const))
     \brief Execute argument function on each key-value pair in hashmap.
 
     Executes the argument function on each key-value pair in hashmap.
-    \param hashmap d.
-    \param f d.
+    \param hashmap Pointer to hashmap which needs to be accessed
+    \param f Pointer to the function which needs to be executed for every pair
 */
 
 /*! \fn int acquire_bucket(struct hashmap_s *const hashmap, const char *key)
     \brief Acquire lock on a hashmap slot.
 
-    Details.
-    \param hashmap d.
-    \param key d.
+    Sets the lock to point to the current thread, so that no other thread can
+    access this particular bucket in hashmap
+    \param hashmap Pointer to hashmap which needs to be accessed
+    \param key Key string. Acquires lock of the bucket corresponding to this key
 */
 
 /*! \fn int release_bucket(struct hashmap_s *const hashmap, const char *key)
     \brief Release acquired lock.
 
-    Details.
-    \param hashmap d.
-    \param key d.
+    Releases the lock by setting the context pointer to NULL, so that other threads
+    can access this bucket.
+    \param hashmap Pointer to hashmap which needs to be accessed
+    \param key Key string. Releases lock of the bucket corresponding to this key
 */
 
 
