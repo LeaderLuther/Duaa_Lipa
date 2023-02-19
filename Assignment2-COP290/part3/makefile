@@ -6,8 +6,15 @@ doc:
 clean:
 	rm -f obj/*
 	rm -fr doc/*
+
+files = $(shell ls data | sed "s/^/data\//")
+
 test:
 	gcc -g3 -o obj/main.o test/main_pthreads.c src/list.c src/hm.c src/mythread.c -I include/ -pthread
-	./obj/main.o data/in1.txt data/in2.txt data/in3.txt data/in4.txt
+	./obj/main.o $(files)
+
+speed:
+	gcc -g3 -o obj/speed_test.o test/speed_test.c src/list.c src/hm.c src/mythread.c -I include/ -pthread
+	./obj/speed_test.o $(files)
 
 .PHONY: all test clean
