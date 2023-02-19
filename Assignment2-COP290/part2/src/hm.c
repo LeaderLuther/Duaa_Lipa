@@ -29,7 +29,9 @@ int hash_func(const char* key){ // Hash function for the hash map
       i++;
     }
     sum += prod;
-    return (sum % SZ);
+    sum = sum % SZ;
+    if (sum < 0) return sum + SZ;
+    return sum;
     
 }
 
