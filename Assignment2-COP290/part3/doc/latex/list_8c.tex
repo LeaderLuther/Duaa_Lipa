@@ -1,0 +1,89 @@
+\hypertarget{list_8c}{}\doxysection{src/list.c File Reference}
+\label{list_8c}\index{src/list.c@{src/list.c}}
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+Include dependency graph for list.\+c\+:
+% FIG 0
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structlist}{list}}
+\begin{DoxyCompactList}\small\item\em The list struct corresponding to a doubly linked lists. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structlistentry}{listentry}}
+\begin{DoxyCompactList}\small\item\em The listentry struct contains data and pointers to adjacent nodes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{list_8c_a2439cbd6a22b846a91b51aad0511157a}{list\+\_\+rm}} (struct \mbox{\hyperlink{structlist}{list}} $\ast$\mbox{\hyperlink{mythread_8c_a1f8ead7bc2ead0233b1bd1d1c4128722}{l}}, struct \mbox{\hyperlink{structlistentry}{listentry}} $\ast$e)
+\begin{DoxyCompactList}\small\item\em Removes a listentry node from list. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structlistentry}{listentry}} $\ast$ \mbox{\hyperlink{list_8c_af765588f85d40e377c9bf749077b9865}{list\+\_\+add}} (struct \mbox{\hyperlink{structlist}{list}} $\ast$\mbox{\hyperlink{mythread_8c_a1f8ead7bc2ead0233b1bd1d1c4128722}{l}}, void $\ast$data)
+\begin{DoxyCompactList}\small\item\em Adds a new listentry node at the tail of list. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structlist}{list}} $\ast$ \mbox{\hyperlink{list_8c_aaeefeb49e551e579788a121e2070b48e}{list\+\_\+new}} ()
+\begin{DoxyCompactList}\small\item\em Initializes a new list. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{list_8c_a4df754b95439918e8813c67771283a40}{is\+\_\+empty}} (struct \mbox{\hyperlink{structlist}{list}} $\ast$\mbox{\hyperlink{mythread_8c_a1f8ead7bc2ead0233b1bd1d1c4128722}{l}})
+\begin{DoxyCompactList}\small\item\em Check if list is empty or not. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{list_8c_a4df754b95439918e8813c67771283a40}\label{list_8c_a4df754b95439918e8813c67771283a40}} 
+\index{list.c@{list.c}!is\_empty@{is\_empty}}
+\index{is\_empty@{is\_empty}!list.c@{list.c}}
+\doxysubsubsection{\texorpdfstring{is\_empty()}{is\_empty()}}
+{\footnotesize\ttfamily int is\+\_\+empty (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structlist}{list}} $\ast$}]{l }\end{DoxyParamCaption})}
+
+
+
+Check if list is empty or not. 
+
+Returns 1 if list is empty, 0 otherwise 
+\begin{DoxyParams}{Parameters}
+{\em l} & Pointer to the list which needs to be accessed \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{list_8c_af765588f85d40e377c9bf749077b9865}\label{list_8c_af765588f85d40e377c9bf749077b9865}} 
+\index{list.c@{list.c}!list\_add@{list\_add}}
+\index{list\_add@{list\_add}!list.c@{list.c}}
+\doxysubsubsection{\texorpdfstring{list\_add()}{list\_add()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structlistentry}{listentry}}$\ast$ list\+\_\+add (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structlist}{list}} $\ast$}]{l,  }\item[{void $\ast$}]{data }\end{DoxyParamCaption})}
+
+
+
+Adds a new listentry node at the tail of list. 
+
+Creates and allocates memory for a new listentry node containing the passed data, and adds it to the end of the list. Returns pointer to the newly added listentry node. 
+\begin{DoxyParams}{Parameters}
+{\em l} & Pointer to the list which needs to be accessed \\
+\hline
+{\em data} & Pointer to the data which needs to be inserted \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:
+% FIG 1
+\mbox{\Hypertarget{list_8c_aaeefeb49e551e579788a121e2070b48e}\label{list_8c_aaeefeb49e551e579788a121e2070b48e}} 
+\index{list.c@{list.c}!list\_new@{list\_new}}
+\index{list\_new@{list\_new}!list.c@{list.c}}
+\doxysubsubsection{\texorpdfstring{list\_new()}{list\_new()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structlist}{list}}$\ast$ list\+\_\+new (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Initializes a new list. 
+
+Creates and allocates memory to a new empty list. Returns pointer to the newly created list Here is the caller graph for this function\+:
+% FIG 2
+\mbox{\Hypertarget{list_8c_a2439cbd6a22b846a91b51aad0511157a}\label{list_8c_a2439cbd6a22b846a91b51aad0511157a}} 
+\index{list.c@{list.c}!list\_rm@{list\_rm}}
+\index{list\_rm@{list\_rm}!list.c@{list.c}}
+\doxysubsubsection{\texorpdfstring{list\_rm()}{list\_rm()}}
+{\footnotesize\ttfamily void list\+\_\+rm (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structlist}{list}} $\ast$}]{l,  }\item[{struct \mbox{\hyperlink{structlistentry}{listentry}} $\ast$}]{e }\end{DoxyParamCaption})}
+
+
+
+Removes a listentry node from list. 
+
+Deletes a listentry node from the list and frees it\textquotesingle{}s memory 
+\begin{DoxyParams}{Parameters}
+{\em l} & Pointer to the list which needs to be accessed \\
+\hline
+{\em e} & Pointer to the listentry node which needs to be deleted \\
+\hline
+\end{DoxyParams}
