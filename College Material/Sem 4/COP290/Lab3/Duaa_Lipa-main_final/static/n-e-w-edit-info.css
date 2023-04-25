@@ -1,0 +1,505 @@
+.new-edit-info-child,
+.new-edit-info-item {
+  position: absolute;
+  top: 265px;
+  left: 65px;
+  border-radius: var(--br-11xl);
+  background-color: var(--color-black);
+  border: 2px solid var(--color-black);
+  box-sizing: border-box;
+  width: 1335px;
+  height: 653px;
+}
+.new-edit-info-item {
+  top: 250px;
+  left: 43px;
+  background-color: var(--color-azure);
+}
+.span {
+  font-size: var(--font-size-45xl);
+}
+.span1 {
+  font-size: var(--font-size-17xl);
+}
+.name {
+  position: absolute;
+  top: 265px;
+  left: 93px;
+  font-family: var(--font-lobster);
+  font-size: var(--font-size-29xl);
+}
+.kiss {
+  color: var(--color-lightpink);
+}
+.help,
+.one-kiss {
+  position: absolute;
+  font-family: var(--font-lobster);
+}
+.one-kiss {
+  text-decoration: none;
+  top: 33px;
+  left: 66px;
+  font-size: var(--font-size-45xl);
+  cursor: pointer;
+  color: inherit;
+}
+.help {
+  top: 48px;
+  left: 1302px;
+  font-size: var(--font-size-21xl);
+}
+.for-you-button-child,
+.new-edit-info-inner {
+  position: absolute;
+  top: 147px;
+  left: 0;
+  background-color: var(--color-mistyrose);
+  border: 1px solid var(--color-black);
+  box-sizing: border-box;
+  width: 1440px;
+  height: 52px;
+}
+.for-you-button-child {
+  height: 100%;
+  width: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--color-white);
+}
+.for-you-button,
+.messages {
+  position: absolute;
+  top: 13.46%;
+  left: 18%;
+}
+.for-you-button {
+  text-decoration: none;
+  top: 147px;
+  left: 597px;
+  width: 200px;
+  height: 52px;
+  color: inherit;
+}
+.find,
+.for-you-button1 {
+  position: absolute;
+  top: 13.46%;
+  left: 36%;
+}
+.for-you-button1 {
+  text-decoration: none;
+  top: 147px;
+  left: 0;
+  width: 200px;
+  height: 52px;
+  color: inherit;
+}
+.find-button,
+.for-you {
+  position: absolute;
+  top: 13.46%;
+  left: 27%;
+}
+.find-button {
+  text-decoration: none;
+  top: 147px;
+  left: 199px;
+  width: 200px;
+  height: 52px;
+  color: inherit;
+}
+.for-you-button2,
+.likes {
+  position: absolute;
+  top: 13.46%;
+  left: 34%;
+}
+.for-you-button2 {
+  text-decoration: none;
+  top: 147px;
+  left: 398px;
+  width: 200px;
+  height: 52px;
+  color: inherit;
+}
+.help2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.amaiya,
+.help1 {
+  position: absolute;
+  top: 48px;
+  height: 50px;
+  font-size: var(--font-size-21xl);
+  font-family: var(--font-lobster);
+}
+.help1 {
+  text-decoration: none;
+  left: 1302px;
+  width: 72px;
+  color: inherit;
+}
+.amaiya {
+  left: 1079px;
+  width: 121px;
+  color: var(--color-lightpink);
+}
+.photo-box-icon,
+.photo-child {
+  position: absolute;
+  border-radius: var(--br-11xl);
+}
+.photo-child {
+  height: 101.46%;
+  width: 101.84%;
+  top: -0.73%;
+  right: -0.92%;
+  bottom: -0.73%;
+  left: -0.92%;
+  background-color: var(--color-gainsboro);
+  border: 2px solid var(--color-black);
+  box-sizing: border-box;
+}
+.photo-box-icon {
+  height: 100%;
+  width: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+  object-fit: cover;
+}
+.photo,
+.photo1,
+.photo2 {
+  position: absolute;
+  height: 26.82%;
+  width: 15.07%;
+  top: 37.11%;
+  right: 40.97%;
+  bottom: 36.07%;
+  left: 43.96%;
+}
+.photo1,
+.photo2 {
+  right: 24.38%;
+  left: 60.56%;
+}
+.photo2 {
+  top: 37.01%;
+  right: 7.78%;
+  bottom: 36.16%;
+  left: 77.15%;
+}
+.upload-button-child,
+.upload-button-item {
+  position: absolute;
+  height: 90.91%;
+  width: 97.78%;
+  top: 9.09%;
+  right: 0;
+  bottom: 0;
+  left: 2.22%;
+  background-color: var(--color-black);
+  border: 2px solid var(--color-black);
+  box-sizing: border-box;
+}
+.upload-button-item {
+  top: 0;
+  right: 2.22%;
+  bottom: 9.09%;
+  left: 0;
+  background-color: var(--color-mistyrose);
+}
+.upload-image {
+  position: absolute;
+  top: 12.12%;
+  left: 18.89%;
+  font-size: var(--font-size-base);
+  font-family: var(--font-dm-sans);
+  color: var(--color-black);
+  text-align: center;
+}
+.upload-button,
+.upload-button1,
+.upload-button2 {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  position: absolute;
+  top: 682px;
+  left: 652px;
+  width: 180px;
+  height: 33px;
+}
+.upload-button1,
+.upload-button2 {
+  left: 890px;
+}
+.upload-button2 {
+  left: 1129px;
+}
+.remove-button-item {
+  position: absolute;
+  height: 90.91%;
+  width: 97.78%;
+  top: 0;
+  right: 2.22%;
+  bottom: 9.09%;
+  left: 0;
+  background-color: var(--color-lightpink);
+  border: 2px solid var(--color-black);
+  box-sizing: border-box;
+}
+.remove-image {
+  position: absolute;
+  top: 12.12%;
+  left: 17.22%;
+  font-size: var(--font-size-base);
+  font-family: var(--font-dm-sans);
+  color: var(--color-black);
+  text-align: center;
+}
+.remove-button,
+.remove-button1,
+.remove-button2 {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  position: absolute;
+  top: 725px;
+  left: 653px;
+  width: 180px;
+  height: 33px;
+}
+.remove-button1,
+.remove-button2 {
+  left: 891px;
+}
+.remove-button2 {
+  left: 1130px;
+}
+.details-child,
+.details-child1,
+.details-child2,
+.details-child3,
+.details-child4,
+.details-inner,
+.details-item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: var(--color-lemonchiffon);
+  border: 2px solid var(--color-black);
+  box-sizing: border-box;
+  width: 500px;
+  height: 55px;
+}
+.details-child1,
+.details-child2,
+.details-child3,
+.details-child4,
+.details-inner,
+.details-item {
+  top: 66px;
+}
+.details-child1,
+.details-child2,
+.details-child3,
+.details-child4,
+.details-inner {
+  top: 198px;
+}
+.details-child1,
+.details-child2,
+.details-child3,
+.details-child4 {
+  top: 132px;
+}
+.details-child2,
+.details-child3,
+.details-child4 {
+  top: 264px;
+}
+.details-child3,
+.details-child4 {
+  top: 330px;
+}
+.details-child4 {
+  top: 420px;
+  left: 75px;
+  background-color: var(--color-mistyrose);
+  width: 425px;
+  height: 69px;
+}
+.icon-double-quote-serif-left {
+  position: absolute;
+  height: 6.75%;
+  width: 8.8%;
+  top: 83.03%;
+  right: 88%;
+  bottom: 10.22%;
+  left: 3.2%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.sex-male-container {
+  position: absolute;
+  top: 10px;
+  left: 16px;
+}
+.drink-socially,
+.smoking-never {
+  position: absolute;
+  top: 208px;
+  left: 16px;
+}
+.smoking-never {
+  top: 274px;
+}
+.diet-mostly-container,
+.education-studying-container {
+  position: absolute;
+  top: 340px;
+  left: 16px;
+}
+.diet-mostly-container {
+  top: 142px;
+}
+.details,
+.sexual-orientation-container {
+  position: absolute;
+  top: 76px;
+  left: 16px;
+}
+.details {
+  top: 380px;
+  left: 93px;
+  width: 500px;
+  height: 489px;
+}
+.i-am-in {
+  position: absolute;
+  top: 817px;
+  left: 188px;
+  text-align: left;
+}
+.save-button-child,
+.save-button-item {
+  position: absolute;
+  height: 92.75%;
+  width: 97.16%;
+  top: 7.25%;
+  right: 0;
+  bottom: 0;
+  left: 2.84%;
+  background-color: var(--color-black);
+  border: 2px solid var(--color-black);
+  box-sizing: border-box;
+}
+.save-button-item {
+  top: 0;
+  right: 2.84%;
+  bottom: 7.25%;
+  left: 0;
+  background-color: var(--color-lightpink);
+}
+.cancel {
+  position: absolute;
+  height: 60.87%;
+  width: 73.3%;
+  top: 15.94%;
+  left: 12.5%;
+  font-size: var(--font-size-5xl);
+  display: inline-block;
+  font-family: var(--font-dm-sans);
+  color: var(--color-black);
+  text-align: center;
+}
+.save-button {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  position: absolute;
+  top: 809px;
+  left: 1045px;
+  width: 132.64px;
+  height: 52px;
+}
+.save-button-child1 {
+  position: absolute;
+  height: 92.75%;
+  width: 97.16%;
+  top: 0;
+  right: 2.84%;
+  bottom: 7.25%;
+  left: 0;
+  background-color: var(--color-lightgoldenrodyellow);
+  border: 2px solid var(--color-black);
+  box-sizing: border-box;
+}
+.save {
+  position: absolute;
+  height: 60.87%;
+  width: 45.45%;
+  top: 15.94%;
+  left: 26.14%;
+  font-size: var(--font-size-5xl);
+  display: inline-block;
+  font-family: var(--font-dm-sans);
+  color: var(--color-black);
+  text-align: center;
+}
+.for-you-button-child:hover{
+  background-color: var(--color-mistyrose);
+}
+.save-button1 {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  position: absolute;
+  top: 809px;
+  left: 1195px;
+  width: 132.64px;
+  height: 52px;
+}
+.save-button-item:hover,
+.save-button-child1:hover{
+  bottom: 0;
+  left: 2.84%;
+  top: 7.25%;
+  right: 0;
+}
+.upload-button-item:hover,
+.remove-button-item:hover{
+  top: 9.09%;
+  right: 0;
+  bottom: 0;
+  left: 2.22%;
+}
+.stext{
+  font-size: var(--font-size-9xl);
+}
+.new-edit-info {
+  position: relative;
+  background-color: var(--color-white);
+  width: 100%;
+  height: 1024px;
+  overflow: hidden;
+  text-align: center;
+  font-size: var(--font-size-21xl);
+  color: var(--color-black);
+  font-family: var(--font-dm-sans);
+}
