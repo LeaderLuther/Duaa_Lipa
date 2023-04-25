@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+    <link rel="stylesheet" href="/static/global.css" />
+    <link rel="stylesheet" href="/static/n-e-w-your-likes.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Lobster:wght@400&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=DM Sans:wght@400;700&display=swap"
+    />
+  </head>
+  <body>
+
+<!-- No likes case, display go look out for some action -->
+    {% for like in likes %}
+    
+      {% if like['Username'] is none %}
+    
+      {% elif like['Username'] != profile['Username'] %}
+          
+        <div class="likes-pf21">
+          <div class="likes-pf6-inner"></div>
+          <a style = "color: inherit;
+          text-decoration: inherit;
+          " href = "/{{user['User_ID']}}/{{type}}/{{like['Username']}}">
+          <div class="likes-pf6-child1">
+          <div class="mask-group5">
+            <img
+              class="mask-group-child3"
+              alt=""
+              src="/static/public/rectangle-25@2x.png"
+            />
+          </div>
+          <div class="aryan-dhaka-20-container2">
+          <b>{{like['FirstName']}} {{like['LastName']}}, </b><span>{{like['Age']}}</span>
+          </div>
+          <div class="liked-10-days1">Liked 10 days ago</div>
+          </div>
+        </a>
+        </div>
+        
+        {% else %}
+        
+        <div class="likes-pf11">
+          
+          <div class="profile1">
+          <div class="mask-group5">
+            <img
+              class="mask-group-child3"
+              alt=""
+              src="/static/public/rectangle-251@2x.png"
+            />
+          </div>
+          <div class="aryan-dhaka-20-container2">
+            <b>{{like['FirstName']}} {{like['LastName']}}, </b><span>{{like['Age']}}</span>
+          </div>
+          <div class="liked-10-days1">Liked today</div>
+          </div>
+        </div>
+
+    {% endif %}
+            
+  {% endfor %}
+
+  </body>
+</html>

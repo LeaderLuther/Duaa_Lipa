@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+    <link rel="stylesheet" href="/static/global.css" />
+    <link rel="stylesheet" href="/static/new-your-profile.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Lobster:wght@400&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=DM Sans:wght@400;700&display=swap"
+    />
+  </head>
+  <body>
+    <div class="new-your-profile">
+      <div class="new-your-profile-child"></div>
+      
+      <div class="new-your-profile-item">
+        
+        <form method = "POST" action = "/{{user['User_ID']}}/likes">
+          <div class="match-button">
+            <div class="match-button-child"></div>
+            <input type="hidden" name="removed" value="{{profile['User_ID']}}"/>
+            <input class = "match-button-item" name = "action3" type = "submit" value = "Kiss">
+          </div>
+        </form>
+        
+      </div>
+      
+      
+      <div class="name1">
+        <span>{{profile['FirstName']}} {{profile['LastName']}},</span><span class="span2"> </span
+        ><span class="span3">{{profile['Age']}}</span>
+        
+        
+        
+      </div>
+      
+      
+      
+      
+      <div class="details1">
+        
+        
+        
+        <div class="details-child1"></div>
+        <div class="details-child1"></div>
+        <div class="details-child1"></div>
+        <div class="details-child1"></div>
+        <div class="details-child1"></div>
+        <div class="details-child1"></div>
+        <div class="details-child10"></div>
+        <img
+          class="icon-double-quote-serif-left1"
+          alt=""
+          src="/static/public/-icon-double-quote-serif-left.svg"
+        />
+        <div class="sex-male-container1 stext"><b>Sex :</b><span> {{profile['Gender']}} </span></div>
+        <div class="drink-socially1 stext"><b>Drink? </b><span> {{profile['Drink']}} </span></div>
+        <div class="smoking-never1 stext"><b>Smoking?</b><span> {{profile['Smoke']}} </span></div>
+        <div class="education-studying-container1 stext">
+          <b>Education :</b><span> {{profile['Education']}}</span>
+        </div>
+        <div class="diet-mostly-container1 stext">
+          <b>Diet :</b><span> {{profile['Food']}} </span>
+        </div>
+        <div class="sexual-orientation-container1 stext">
+          <b>Sexual Orientation :</b><span> {{profile['Sexual_orientation']}} </span>
+        </div>
+      </div>
+
+      <div class="new-your-profile-inner"></div>
+      <a class="for-you-button3" href="/{{user['User_ID']}}/messages"
+        ><div class="rectangle-button">
+        <div class="messages1">Messages</div></div></a
+      ><a class="for-you-button4" href="/{{user['User_ID']}}/home"
+        ><div class="rectangle-button">
+        <div class="find1">Find</div></div></a
+      ><a class="find-button1" href="/{{user['User_ID']}}/for_you"
+        ><div class="rectangle-button">
+        <div class="for-you1">For You</div></div></a
+      ><a class="for-you-button5" href="/{{user['User_ID']}}/likes"
+        ><div class="rectangle-button">
+        <div class="likes1">Likes</div></div></a
+      ><b class="i-am-in1 stext">{{profile['User_description']}}</b
+      >
+
+      <div class="component-8">
+        <div class="photo3">
+          <img
+            class="rectangle-icon"
+            alt=""
+            src="/static/public/rectangle-82@2x.png"
+          /><img
+            class="photo-box-icon3"
+            alt=""
+            src="/static/public/photo-box3@2x.png"
+          />
+        </div>
+        <div class="photo4">
+          <div class="photo-child1"></div>
+          <img
+            class="photo-box-icon4"
+            alt=""
+            src="/static/public/photo-box4@2x.png"
+          />
+        </div>
+        <div class="photo5">
+          <div class="photo-child2"></div>
+          <img
+            class="photo-box-icon5"
+            alt=""
+            src="/static/public/photo-box5@2x.png"
+          />
+        </div>
+        <button class="next-button">
+          <div class="next-button-child"></div>
+          <div class="next-button-item">
+          <div class="next">Next</div>
+          </div>
+        </button>
+      </div>
+      
+      {% include 'topbar.html' %}
+      
+    </div>
+
+    
+  </body>
+</html>
