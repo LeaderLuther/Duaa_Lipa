@@ -2,8 +2,8 @@ from sqlalchemy import create_engine
 from sqlalchemy.sql import text
 
 #This is for connecting to our MySQL database
-#db_connection = "mysql+pymysql://bqian0iihmvzby032egw:pscale_pw_rvOCawQgP8q5aauBF8o1faMpPQ4Z5POGbnpVS4vilOo@aws.connect.psdb.cloud/one_kiss_website?charset=utf8mb4"
-db_connection="mysql+pymysql://root:duaa_lipa@localhost/onekiss"
+db_connection = "mysql+pymysql://8okt496kqz70peurr4uo:pscale_pw_SOLyVC2boHWKnK7fOWIxCvdykumfR1ju2g5aCEP4dTQ@aws.connect.psdb.cloud/one_kiss_website?charset=utf8mb4"
+#db_connection="mysql+pymysql://root:duaa_lipa@localhost/onekiss"
 #connect_args={
 #        "ssl": {
 #            "ca": "/etc/ssl/certs/ca-certificates.crt",
@@ -11,9 +11,12 @@ db_connection="mysql+pymysql://root:duaa_lipa@localhost/onekiss"
 #	    }	
 	    
 engine = create_engine(
-	db_connection
-
-	
+	db_connection, 
+  connect_args={
+         "ssl": {
+             "ca": "/etc/ssl/cert.pem",
+          }
+      } 
 	)
 
 
@@ -176,6 +179,26 @@ def profiles_to_show_from_db(user_id):
     for row in rows:
       users.append(row._asdict())
     return users
+    
+def selected_profiles_to_show_from_db(user_id, drink_pref, edu_pref, smoke_pref, rel_pref):
+  with engine.connect() as conn:
+    result = conn.execute(
+      text("SELECT * FROM user_table WHERE Education=:edu_pref AND Drink=:drink_pref AND Smoke=:smoke_pref AND Relationship_type=:rel_type ORDER BY RAND() LIMIT 3"),
+      dict(
+        edu_pref = edu_pref,
+        drink_pref = drink_pref,
+        smoke_pref = smoke_pref,
+        rel_type = rel_pref)
+      )
+    users = []
+    rows = result.all()
+    
+    if len(rows) == 0:
+      return None
+      
+    for row in rows:
+      users.append(row._asdict())
+    return users    
     
 def send_like_to_db(user_id, liked_id):
   with engine.connect() as conn:

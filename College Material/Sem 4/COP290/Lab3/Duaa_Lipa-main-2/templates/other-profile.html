@@ -13,6 +13,42 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=DM Sans:wght@400;700&display=swap"
     />
+    
+    <script type="text/javascript">
+      
+      var numer = 1;
+  
+      function changeImage1() {
+        console.log("hello there")
+        var image1 = document.getElementById('img1');
+        var image2 = document.getElementById('img2');
+        var image3 = document.getElementById('img3');
+        
+        if (numer == 1){
+          console.log("check1")
+          numer  = 2;
+          image1.src = '{{profile['Photolink2']}}';
+          image2.src = '{{profile['Photolink3']}}';
+          image3.src = '{{profile['Photolink1']}}';
+        }
+        else if (numer == 2){
+          console.log("check2")
+          numer = 3
+          image1.src = '{{profile['Photolink3']}}';
+          image2.src = '{{profile['Photolink1']}}';
+          image3.src = '{{profile['Photolink2']}}';
+        }
+        else if (numer == 3){
+          console.log("check3")
+          numer = 1;
+          image1.src = '{{profile['Photolink1']}}';
+          image2.src = '{{profile['Photolink2']}}';
+          image3.src = '{{profile['Photolink3']}}';
+        }
+      }
+      
+    </script>
+    
   </head>
   <body>
     <div class="new-your-profile">
@@ -21,11 +57,13 @@
       <div class="new-your-profile-item">
         
         <form method = "POST" action = "/{{user['User_ID']}}/likes">
+          
           <div class="match-button">
             <div class="match-button-child"></div>
             <input type="hidden" name="removed" value="{{profile['User_ID']}}"/>
             <input class = "match-button-item" name = "action3" type = "submit" value = "Kiss">
           </div>
+          
         </form>
         
       </div>
@@ -89,34 +127,35 @@
       >
 
       <div class="component-8">
-        <div class="photo3">
-          <img
-            class="rectangle-icon"
-            alt=""
-            src="/static/public/rectangle-82@2x.png"
-          /><img
-            class="photo-box-icon3"
-            alt=""
-            src="/static/public/photo-box3@2x.png"
-          />
-        </div>
-        <div class="photo4">
-          <div class="photo-child1"></div>
-          <img
-            class="photo-box-icon4"
-            alt=""
-            src="/static/public/photo-box4@2x.png"
-          />
-        </div>
-        <div class="photo5">
+        
+        <div class="photo55">
           <div class="photo-child2"></div>
-          <img
+          <img id ="img3"
             class="photo-box-icon5"
             alt=""
-            src="/static/public/photo-box5@2x.png"
+            src="{{profile['Photolink3']}}"
           />
         </div>
-        <button class="next-button">
+        
+        <div class="photo555">
+          <div class="photo-child222"></div>
+          <img id = "img2"
+            class="photo-box-icon5"
+            alt=""
+            src="{{profile['Photolink2']}}"
+          />
+        </div>
+        
+        <div class="photo5">
+          <div class="photo-child22"></div>
+          <img id = "img1"
+            class="photo-box-icon5"
+            alt=""
+            src="{{profile['Photolink1']}}"
+          />
+        </div>
+       
+        <button class="next-button" onclick="changeImage1()">
           <div class="next-button-child"></div>
           <div class="next-button-item">
           <div class="next">Next</div>
@@ -124,7 +163,9 @@
         </button>
       </div>
       
-      {% include 'topbar.html' %}
+      <div class="bigsize">
+        {% include 'topbar.html' %}
+      </div>
       
     </div>
 

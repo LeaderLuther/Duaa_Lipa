@@ -176,6 +176,7 @@
   position: absolute;
   top: 7.41%;
   left: 22.28%;
+  font-size: var(--font-size-xl);
 }
 .input-fields5,
 .next-button7 {
@@ -295,8 +296,8 @@
   position: absolute;
   top: 16px;
   left: 20px;
-  font-size: 42px;
   letter-spacing: 0.02em;
+  font-size: var(--font-size-21xl);
   display: inline-block;
   width: 259px;
   height: 57px;
@@ -328,8 +329,16 @@
   left: 0;
   background-color: var(--color-lemonchiffon);
 }
+.sign-up-buttondefault-item:hover {
+  bottom: 0;
+  left: 2.5%;
+  top: 10%;
+  right: 0;
+  background-color: var(--color-lemonchiffon);
+}
 .sign-up-now {
   position: absolute;
+  font-size: var(--font-size-5xl);
   top: 14%;
   left: 14.5%;
 }

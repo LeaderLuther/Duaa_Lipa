@@ -158,21 +158,26 @@
   left: 1302px;
   color: var(--color-lightpink);
 }
-
+.amaiya4,
+.amaiya5 {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
 .amaiya4 {
   text-decoration: none;
-  position: absolute;
   top: 15px;
   left: 1079px;
   width: 121px;
   height: 50px;
   color: inherit;
-  font-family: var(--font-lobster);
+}
+.amaiya5:hover{
+  color: var(--color-lightpink);
 }
 .amaiya4:hover{
   color: var(--color-lightpink);
 }
-
 .title-bar {
   position: absolute;
   top: 33px;

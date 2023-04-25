@@ -22,10 +22,6 @@
   cursor: pointer;
   color: inherit;
 }
-/*.help7 {
-  top: 48px;
-  left: 1302px;
-}*/
 .help8:hover{
   color: var(--color-lightpink);
 }

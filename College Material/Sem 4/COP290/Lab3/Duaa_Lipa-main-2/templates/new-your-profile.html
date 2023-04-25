@@ -13,6 +13,42 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=DM Sans:wght@400;700&display=swap"
     />
+    
+    <script type="text/javascript">
+      
+      var numer = 1;
+  
+      function changeImage1() {
+        console.log("hello there")
+        var image1 = document.getElementById('img1');
+        var image2 = document.getElementById('img2');
+        var image3 = document.getElementById('img3');
+        
+        if (numer == 1){
+          console.log("check1")
+          numer  = 2;
+          image1.src = '{{user['Photolink2']}}';
+          image2.src = '{{user['Photolink3']}}';
+          image3.src = '{{user['Photolink1']}}';
+        }
+        else if (numer == 2){
+          console.log("check2")
+          numer = 3
+          image1.src = '{{user['Photolink3']}}';
+          image2.src = '{{user['Photolink1']}}';
+          image3.src = '{{user['Photolink2']}}';
+        }
+        else if (numer == 3){
+          console.log("check3")
+          numer = 1;
+          image1.src = '{{user['Photolink1']}}';
+          image2.src = '{{user['Photolink2']}}';
+          image3.src = '{{user['Photolink3']}}';
+        }
+      }
+      
+    </script>
+    
   </head>
   <body>
     <div class="new-your-profile">
@@ -75,41 +111,100 @@
       >
       
       <div class="component-8">
-        <div class="photo3">
-          <img
-            class="rectangle-icon"
-            alt=""
-            src="/static/public/rectangle-82@2x.png"
-          /><img
-            class="photo-box-icon3"
-            alt=""
-            src="/static/public/photo-box3@2x.png"
-          />
-        </div>
-        <div class="photo4">
-          <div class="photo-child1"></div>
-          <img
-            class="photo-box-icon4"
-            alt=""
-            src="/static/public/photo-box4@2x.png"
-          />
-        </div>
-        <div class="photo5">
+        
+        <div class="photo55">
           <div class="photo-child2"></div>
-          <img
+          <img id = "img3"
             class="photo-box-icon5"
             alt=""
-            src="/static/public/photo-box5@2x.png"
+            src="{{user['Photolink3']}}"
           />
         </div>
-        <button class="next-button">
+        
+        <div class="photo555">
+          <div class="photo-child222"></div>
+          <img id = img2
+            class="photo-box-icon5"
+            alt=""
+            src="{{user['Photolink2']}}"
+          />
+        </div>
+        
+        <div class="photo5">
+          <div class="photo-child22"></div>
+          <img id = "img1"
+            class="photo-box-icon5"
+            alt=""
+            src="{{user['Photolink1']}}"
+          />
+        </div>
+        
+        <button id="thisbutt" class="next-button" onclick="changeImage1()">
           <div class="next-button-child"></div>
           <div class="next-button-item">
           <div class="next">Next</div>
           </div>
         </button>
       </div>
-      <button class="stats">
+      
+      <!-- <button class="stats">
+        <div class="stats-child"></div>
+        <div class="stats-item">
+        <div class="bars">
+          <div class="bars-child"></div>
+          <div class="bars-item"></div>
+          <div class="bars-inner"></div>
+        </div>
+        </div>
+      </button> -->
+      
+       <a class="one-kiss1" id="oneKiss"
+          ><span>One </span><span class="kiss1">Kiss</span></a
+        >
+        <a class="help4" href="/{{user['User_ID']}}/help">Help</a>
+        
+        <div class="amaiya2">{{user['Username']}}</div>
+        
+        <form action = "/{{user['User_ID']}}/profile" method = "POST">
+          <input type = "hidden" name = "User" value = "{{user['User_ID']}}" >
+          <input class="logout" type="submit" value="Logout">
+        </form>
+      
+    </div>
+    
+    <div id="overlay" onclick="off()">
+      <!-- <div id="text">Overlay Text</div> -->
+      <div class="stats-overlay" onclick="off()">
+        <div class="stats-overlay-child"></div>
+        <div class="stats-overlay-item">
+          <div class="stats-overlay-inner">
+            <div class = "likes4">
+              <b>Joined One Kiss: </b> <span>14th March, 2023</span>
+            </div>
+          </div>
+          <div class="stats-overlay-child1">
+            <div class = "likes4">
+             <b>Total Likes Received: </b> <span>55</span>
+            </div>
+          </div>
+          <div class="stats-overlay-child2">
+            <div class = "likes4">
+              <b>Total Matches: </b> <span>8</span>
+            </div>
+          </div>
+          
+          <b class="your-statistics">Your Statistics</b>
+          <div class="cross">
+            <div class="cross-bg"></div>
+            <div class="cross-box"></div>
+            <img class="multiply-icon" alt="" src="/static/public/multiply@2x.png" />
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div style="padding:20px">
+      <button onclick="on()" class="stats">
         <div class="stats-child"></div>
         <div class="stats-item">
         <div class="bars">
@@ -119,15 +214,19 @@
         </div>
         </div>
       </button>
-      
-       <a class="one-kiss1" id="oneKiss"
-          ><span>One </span><span class="kiss1">Kiss</span></a
-        >
-        <a class="help4" href="/{{user['User_ID']}}/help">Help</a>
-        
-        <div class="amaiya2">{{user['Username']}}</div>
-      
     </div>
+    
+
+
+    <script>
+    function on() {
+      document.getElementById("overlay").style.display = "block";
+    }
+    
+    function off() {
+      document.getElementById("overlay").style.display = "none";
+    }
+    </script>
 
     <script>
       var oneKiss = document.getElementById("oneKiss");
