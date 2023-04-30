@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+    <link rel="stylesheet" href="/static/global.css" />
+    <link rel="stylesheet" href="/static/HabitsAryan.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM Sans:wght@400;500;700&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lobster:wght@400&display=swap" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+  </head>
+
+  <body>
+    <div class="habits-aryan">
+      <div class="habits-aryan-child"></div>
+      <div class="habits-aryan-item"></div>
+      <div class="how-frequently-do">
+        How frequently do you consume alcohol?
+      </div>
+      <div class="how-about-smoking">How about smoking habits?</div>
+      <div class="habits-aryan-inner"></div>
+      <div class="what-are-your">What are your eating preferences?</div>
+      <!-- <div class="drink-drop">
+        <div class="select-an-item-parent">
+          <div class="select-an-item">Drinking habit</div>
+          <img class="instance-child" alt="" src="./public/polygon-3.svg" />
+        </div>
+        <div class="list-drop">
+          <div class="item-1-wrapper"><div class="item-1">Item 1</div></div>
+          <div class="item-1-wrapper"><div class="item-1">Item 1</div></div>
+          <div class="item-1-wrapper"><div class="item-1">Item 1</div></div>
+        </div>
+      </div> -->
+      <form id="hardik" action="/habits/{{id}}" method="POST">
+        <select class="drink-drop" name="drinking" required>
+          <option disabled selected>Drinking habit</option>
+          <option value="Often">Often</option>
+          <option value="Sometimes">Sometimes</option>
+          <option value="Never">Never</option>
+        </select>
+
+        <!-- <div class="input-fields1">
+        <div class="error-message1">Name</div>
+        <div class="box1"></div>
+        <div class="key-field1">Name</div>
+        <div class="value-main1">
+          <img class="start-cursor-icon1" alt="" />
+          <div class="value-masked1">
+            <div class="mask-layer1"><div class="mask-box1"></div></div>
+          </div>
+          <img class="start-cursor-icon1" alt="" />
+        </div>
+      </div> -->
+        <div class="input-fields1">
+          <input type="text" name="eating" class="box1" required>
+        </div>
+        <div class="next-button1">
+          <button type="submit">
+            <div class="next-button-inner"></div>
+            <div class="return-button-child1"></div>
+            <div class="return1">Next</div>
+          </button>
+        </div>
+
+        <div class="smoke-drop">
+          <select id="smoke-drop" name="smoking" required>
+            <option disabled selected>Smoking habit</option>
+            <option value="Often">Often</option>
+            <option value="Sometimes">Sometimes</option>
+            <option value="Never">Never</option>
+          </select>
+        </div>
+      </form>
+      <img class="progress-bar-icon1" alt="" src="/static/public/progress-bar1.svg" />
+      <div class="one-kiss1">
+        <span>One </span><span class="kiss1">Kiss</span>
+      </div>
+      <form id="hardi" action="/prev_habit/{{id}}" method="POST">
+        <div class="return-button1">
+          <button type="submit" name="return-button">
+            <div class="return-button-inner"></div>
+            <div class="return-button-child1"></div>
+            <div class="return1">Return</div>
+          </button>
+        </div>
+      </form>
+      <!-- <div class="smoke-drop">
+        <div class="select-an-item-group">
+          <div class="select-an-item">Smoking habit</div>
+          <img class="instance-child" alt="" src="./public/polygon-31.svg" />
+        </div>
+        <div class="list-drop">
+          <div class="item-1-wrapper"><div class="item-1">Item 1</div></div>
+          <div class="item-1-wrapper"><div class="item-1">Item 1</div></div>
+          <div class="item-1-wrapper"><div class="item-1">Item 1</div></div>
+        </div>
+      </div> -->
+    </div>
+  </body>
+
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+    <link rel="stylesheet" href="/static/global.css" />
+    <link rel="stylesheet" href="/static/n-e-w-your-likes.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Lobster:wght@400&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=DM Sans:wght@400;700&display=swap"
+    />
+  </head>
+  <body>
+    <div class="new-your-likes">
+
+      <div class="new-your-likes-child"></div>
+      <a class="for-you-button9" href="/{{user['User_ID']}}/messages"
+        ><div class="for-you-button-child6">
+        <div class="messages3">Messages</div></div></a
+      ><a class="for-you-button10" href="/{{user['User_ID']}}/home"
+        ><div class="for-you-button-child6">
+        <div class="find3">Find</div></div></a
+      ><a class="find-button3" href="/{{user['User_ID']}}/for_you"
+        ><div class="for-you-button-child6">
+        <div class="for-you3">Explore</div></div></a
+      >
+      <div class="for-you-button11">
+        <div class="for-you-button-child8"></div>
+        <b class="likes3">Likes</b>
+      </div>
+      
+      <div class="new-your-likes-item"></div>
+      
+      <div class="profiles1">
+        <div class="rectangle-container">
+          <div class="frame-child1"></div>
+          
+          {% include "profiles.html" %}
+          
+        </div>
+      </div>
+      
+      <div class="liked-profile">
+        <div class="liked-profile-child"></div>
+        <div class="liked-profile-item">
+          
+          <div class = "startertext">Select a profile to view a preview. <br><br> Click on the preview to view their full profiles.</div>
+          
+        </div>
+      </div>
+      
+      {% include "topbar.html" %}
+    </div>
+
+    <script>
+      var oneKiss = document.getElementById("oneKiss");
+      if (oneKiss) {
+        oneKiss.addEventListener("click", function (e) {
+          // Please sync "Desktop - 3" to the project
+        });
+      }
+
+      </script>
+  </body>
+</html>

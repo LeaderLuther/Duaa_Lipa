@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+    <link rel="stylesheet" href="/static/global.css" />
+    <link rel="stylesheet" href="/static/n-e-w-messages.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Lobster:wght@400&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=DM Sans:wght@400;700&display=swap"
+    />
+  </head>
+  <body>
+    <div class="new-messages">
+      <div class="new-messages-child"></div>
+      <!-- <a class="one-kiss3" id="oneKiss"
+        ><span>One </span><span class="kiss3">Kiss</span></a
+      >
+ -->      <!-- <div class="help7">Help</div> -->
+      <div class="new-messages-item"></div>
+      
+      
+      
+      <div class="for-you-button6">
+        <button class="for-you-button-child3"></button
+        ><b class="messages2">Messages</b>
+      </div>
+      <a class="for-you-button7" href="/{{user['User_ID']}}/home"
+        ><div class="find-button-inner">
+        <div class="find2">Find</div></div></a
+      ><a class="find-button2" href="/{{user['User_ID']}}/for_you"
+        ><div class="find-button-inner">
+        <div class="for-you2">Explore</div></div></a
+      ><a class="for-you-button8" href="/{{user['User_ID']}}/likes"
+        ><div class="find-button-inner">
+        <div class="likes2">Likes</div></div></a
+      >
+      <div class="new-messages-inner"></div>
+      
+      <div class="profiles">
+        <div class="rectangle-parent">
+          <div class="frame-item"></div>
+          
+          {% include "profiles.html" %}
+          
+        </div>
+      </div>
+      
+      <form method = "POST" action = "/{{user['User_ID']}}/messages">
+        
+        <div class="new-messages-child1">
+          
+          <div class="match-button9">
+              <div class="match-button-child9"></div>
+                <input type="hidden" name="removed" value="{{profile['User_ID']}}"/>
+                <input class = "match-button-item9" type = "submit" name = "action2" value = "UNMATCH">
+            </div>
+          
+        </div>
+      </form>
+      
+      <div class="aryan-dhaka-20-container1">
+        <span>{{profile['FirstName']}} {{profile['LastName']}}, </span><span class="span4">{{profile['Age']}}</span>
+      </div>
+
+      <div class="new-messages-child2"></div>
+      <div class="messages-1-parent">
+        <div class="messages-1">
+          
+          {% for message in messages %}
+          
+            {% if message['Sender_User_ID'] ==  receiver%}
+            
+              <div class="messages-rec">{{message['Message_Text']}}</div>
+            
+            {% else %}
+            
+              <div class="messages-sent">{{message['Message_Text']}}</div>
+            
+            {% endif %}
+            
+          {% endfor %}
+          
+        </div>
+        <!-- <div class="frame-inner"></div> -->
+      </div>
+      <!-- <div class="rectangle-group"> -->
+        <!-- <div class="instance-child"></div> -->
+        <form method = "POST" action = "/{{user['User_ID']}}/messages/{{profile['Username']}}">
+          <!-- <div class="make-your-move">Make your move</div> -->
+          <input type="text" class="rectangle-group" name="message"
+          placeholder="Make your move">
+
+        
+        {% include "topbar.html" %}
+      <!-- </div> -->
+      
+       <div class="send-button">
+        <div class="send-button-child"></div> 
+        <!-- <div class="send-button-item"> -->
+          
+        <input type = "submit" class = "send-button-item" value = "Send">
+        <!-- <b class="send">Send</b> -->
+        
+        </div>
+        
+      </form>
+      </div>
+
+    <script>
+      var oneKiss = document.getElementById("oneKiss");
+      if (oneKiss) {
+        oneKiss.addEventListener("click", function (e) {
+          // Please sync "Desktop - 3" to the project
+        });
+      }
+      </script>
+  </body>
+</html>

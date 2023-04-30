@@ -1,0 +1,226 @@
+.return-button-child8,
+.return-button-child9 {
+  position: absolute;
+  height: 92.16%;
+  width: 96.46%;
+  top: 7.84%;
+  right: 0;
+  bottom: 0;
+  left: 3.54%;
+  border-radius: var(--br-mini);
+  background-color: var(--color-black);
+  border: 2px solid var(--color-black);
+  box-sizing: border-box;
+}
+.return-button-child9 {
+  top: 0;
+  right: 3.54%;
+  bottom: 7.84%;
+  left: 0;
+  background-color: var(--color-gainsboro-100);
+}
+.return5 {
+  position: absolute;
+  height: 78.43%;
+  width: 92.04%;
+  top: 7.84%;
+  left: 2.65%;
+  line-height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.return-button5 {
+  position: absolute;
+  top: 713px;
+  left: 589px;
+  width: 113px;
+  height: 51px;
+  font-size: var(--font-size-11xl);
+}
+.next-button-child8 {
+  position: absolute;
+  height: 92.16%;
+  width: 96.46%;
+  top: 7.84%;
+  right: 6.19%;
+  bottom: 0;
+  left: -2.65%;
+  border-radius: var(--br-mini);
+  background-color: var(--color-black);
+  border: 2px solid var(--color-black);
+  box-sizing: border-box;
+}
+.next-button5 {
+  position: absolute;
+  top: 713px;
+  left: 735px;
+  width: 113px;
+  height: 51px;
+  font-size: var(--font-size-11xl);
+}
+.age-aryan-child {
+  position: absolute;
+  top: 282px;
+  left: 239px;
+  border-radius: var(--br-6xl);
+  background-color: var(--color-white);
+  border: 3px solid var(--color-black);
+  box-sizing: border-box;
+  width: 961px;
+  height: 109px;
+}
+.hey-amaiya-when,
+.select-an-item6 {
+  line-height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hey-amaiya-when {
+  position: absolute;
+  top: 250px;
+  left: 203px;
+  width: 1033px;
+  height: 173px;
+  -webkit-text-stroke: 1px #b39bc8;
+}
+.select-an-item6 {
+  position: relative;
+  width: 287px;
+  height: 68px;
+  flex-shrink: 0;
+}
+.instance-child3 {
+  position: relative;
+  width: 31.18px;
+  height: 24.75px;
+  flex-shrink: 0;
+}
+.select-an-item-parent4 {
+  position: absolute;
+  height: 7.91%;
+  width: 100%;
+  top: 0;
+  right: 0;
+  bottom: 92.09%;
+  left: 0;
+  border-radius: var(--br-xl);
+  background-color: var(--color-white);
+  border: 2px solid var(--color-black);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+.item-118 {
+  position: relative;
+  line-height: 28px;
+}
+.item-1-wrapper15,
+.item-1-wrapper18 {
+  background-color: var(--color-white);
+  border: 2px solid var(--color-black);
+  box-sizing: border-box;
+  width: 343px;
+  height: 66px;
+  flex-shrink: 0;
+  flex-direction: row;
+  padding: var(--padding-3xs);
+  align-items: center;
+  justify-content: center;
+}
+.item-1-wrapper15 {
+  display: none;
+}
+.item-1-wrapper18 {
+  display: flex;
+}
+.instance-container {
+  position: absolute;
+  height: 69.07%;
+  width: 100%;
+  top: 19.42%;
+  right: 0;
+  bottom: 11.51%;
+  left: 0;
+  display: none;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.component-10 {
+  position: absolute;
+  top: 450px;
+  left: 544px;
+  width: 343px;
+  height: 860px;
+}
+.instance-parent1,
+.select-an-item-parent5 {
+  position: absolute;
+  width: 100%;
+  right: 0;
+  left: 0;
+  justify-content: flex-start;
+}
+.select-an-item-parent5 {
+  height: 3.22%;
+  top: 0;
+  bottom: 96.78%;
+  border-radius: var(--br-xl);
+  background-color: var(--color-white);
+  border: 2px solid var(--color-black);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.instance-parent1 {
+  height: 96.78%;
+  top: 3.22%;
+  bottom: 0;
+  display: none;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.day-drop,
+.year-drop {
+  position: absolute;
+  top: 450px;
+  left: 178px;
+  width: 343px;
+  height: 2114px;
+}
+.year-drop {
+  left: 920px;
+}
+.progress-bar-icon5 {
+  position: absolute;
+  top: 155px;
+  left: 483px;
+  width: 465px;
+  height: 60px;
+}
+.kiss5 {
+  color: var(--color-lightpink);
+}
+.one-kiss5 {
+  position: absolute;
+  top: 46px;
+  left: 65px;
+  font-size: var(--font-size-77xl);
+  font-family: var(--font-lobster);
+}
+.age-aryan {
+  position: relative;
+  background-color: var(--color-lemonchiffon);
+  width: 100%;
+  height: 1024px;
+  overflow: hidden;
+  text-align: center;
+  font-size: var(--font-size-21xl);
+  color: var(--color-black);
+  font-family: var(--font-dm-sans);
+}
