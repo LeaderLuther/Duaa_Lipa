@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+    <link rel="stylesheet" href="/static/global.css" />
+    <link rel="stylesheet" href="/static/new-your-profile.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Lobster:wght@400&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=DM Sans:wght@400;700&display=swap"
+    />
+    
+    <script type="text/javascript">
+      
+      var numer = 1;
+  
+      function changeImage1() {
+        console.log("hello there")
+        var image1 = document.getElementById('img1');
+        var image2 = document.getElementById('img2');
+        var image3 = document.getElementById('img3');
+        
+        if (numer == 1){
+          console.log("check1")
+          numer  = 2;
+          image1.src = '/static/public/{{profile['Photolink2']}}';
+          image2.src = '/static/public/{{profile['Photolink3']}}';
+          image3.src = '/static/public/{{profile['Photolink1']}}';
+        }
+        else if (numer == 2){
+          console.log("check2")
+          numer = 3
+          image1.src = '/static/public/{{profile['Photolink3']}}';
+          image2.src = '/static/public/{{profile['Photolink1']}}';
+          image3.src = '/static/public/{{profile['Photolink2']}}';
+        }
+        else if (numer == 3){
+          console.log("check3")
+          numer = 1;
+          image1.src = '/static/public/{{profile['Photolink1']}}';
+          image2.src = '/static/public/{{profile['Photolink2']}}';
+          image3.src = '/static/public/{{profile['Photolink3']}}';
+        }
+      }
+      
+    </script>
+    
+  </head>
+  <body>
+    <div class="new-your-profile">
+      <div class="new-your-profile-child"></div>
+      
+      <div class="new-your-profile-item">
+        
+        <form method = "POST" action = "/{{user['User_ID']}}/likes">
+          
+          <div class="match-button">
+            <div class="match-button-child"></div>
+            <input type="hidden" name="removed" value="{{profile['User_ID']}}"/>
+            <input class = "match-button-item" name = "action3" type = "submit" value = "Kiss">
+          </div>
+          
+        </form>
+        
+      </div>
+      
+      
+      <div class="name1">
+        <span>{{profile['FirstName']}},</span><span class="span2"> </span
+        ><span class="span3">{{profile['Age']}}</span>
+        
+        
+        
+      </div>
+      
+      
+      
+      
+      <div class="details1">
+        
+        
+        
+        <div class="details-child1"></div>
+        <div class="details-child1"></div>
+        <div class="details-child1"></div>
+        <div class="details-child1"></div>
+        <div class="details-child1"></div>
+        <div class="details-child1"></div>
+        <div class="details-child10"></div>
+        <img
+          class="icon-double-quote-serif-left1"
+          alt=""
+          src="/static/public/-icon-double-quote-serif-left.svg"
+        />
+        <div class="sex-male-container1 stext"><b>Sex :</b><span> {{profile['Gender']}} </span></div>
+        <div class="drink-socially1 stext"><b>Drink? </b><span> {{profile['Drink']}} </span></div>
+        <div class="smoking-never1 stext"><b>Smoking?</b><span> {{profile['Smoke']}} </span></div>
+        <div class="education-studying-container1 stext">
+          <b>Education :</b><span> {{profile['Education']}}</span>
+        </div>
+        <div class="diet-mostly-container1 stext">
+          <b>Diet :</b><span> {{profile['Food']}} </span>
+        </div>
+        <div class="sexual-orientation-container1 stext">
+          <b>Sexual Orientation :</b><span> {{profile['Sexual_orientation']}} </span>
+        </div>
+      </div>
+
+      <div class="new-your-profile-inner"></div>
+      <a class="for-you-button3" href="/{{user['User_ID']}}/messages"
+        ><div class="rectangle-button">
+        <div class="messages1">Messages</div></div></a
+      ><a class="for-you-button4" href="/{{user['User_ID']}}/home"
+        ><div class="rectangle-button">
+        <div class="find1">Find</div></div></a
+      ><a class="find-button1" href="/{{user['User_ID']}}/for_you"
+        ><div class="rectangle-button">
+        <div class="for-you1">For You</div></div></a
+      ><a class="for-you-button5" href="/{{user['User_ID']}}/likes"
+        ><div class="rectangle-button">
+        <div class="likes1">Likes</div></div></a
+      ><b class="i-am-in1 stext">{{profile['User_description']}}</b
+      >
+
+      <div class="component-8">
+        
+        <div class="photo55">
+          <div class="photo-child2"></div>
+          <img id ="img3"
+            class="photo-box-icon5"
+            alt=""
+            src="/static/public/{{profile['Photolink3']}}"
+          />
+        </div>
+        
+        <div class="photo555">
+          <div class="photo-child222"></div>
+          <img id = "img2"
+            class="photo-box-icon5"
+            alt=""
+            src="/static/public/{{profile['Photolink2']}}"
+          />
+        </div>
+        
+        <div class="photo5">
+          <div class="photo-child22"></div>
+          <img id = "img1"
+            class="photo-box-icon5"
+            alt=""
+            src="/static/public/{{profile['Photolink1']}}"
+          />
+        </div>
+       
+        <button class="next-button" onclick="changeImage1()">
+          <div class="next-button-child"></div>
+          <div class="next-button-item">
+          <div class="next">Next</div>
+          </div>
+        </button>
+      </div>
+      
+      <div class="bigsize">
+        {% include 'topbar.html' %}
+      </div>
+      
+    </div>
+
+    
+  </body>
+</html>
