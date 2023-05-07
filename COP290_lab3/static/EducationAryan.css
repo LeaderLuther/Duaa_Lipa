@@ -1,0 +1,205 @@
+.education-aryan-child {
+  position: absolute;
+  top: 278px;
+  left: 289px;
+  border-radius: var(--br-6xl);
+  background-color: var(--color-white);
+  border: 3px solid var(--color-black);
+  box-sizing: border-box;
+  width: 864px;
+  height: 117px;
+}
+.what-is-your {
+  position: absolute;
+  top: 250px;
+  left: 203px;
+  line-height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1033px;
+  height: 173px;
+  /* -webkit-text-stroke: 1px #b39bc8; */
+}
+.return-button-child4,
+.return-button-child5,
+.return-button-child6 {
+  position: absolute;
+  height: 92.16%;
+  width: 96.46%;
+  top: 7.84%;
+  right: 0;
+  bottom: 0;
+  left: 3.54%;
+  border-radius: var(--br-mini);
+  background-color: var(--color-black);
+  border: 2px solid var(--color-black);
+  box-sizing: border-box;
+}
+.return-button-child5 {
+  top: 0;
+  right: 3.54%;
+  bottom: 7.84%;
+  left: 0;
+  background-color: var(--color-gainsboro-100);
+}
+.return-button-child5:hover {
+  bottom: 0;
+  left: -3.54%;
+  top: 7.84%;
+  right: 0;
+  background-color: var(--color-gainsboro-100);
+}
+.return-button-child6 {
+  top: 0;
+  right: 3.54%;
+  bottom: 7.84%;
+  left: 0;
+  background-color: var(--color-gainsboro-100);
+}
+.return-button-child6:hover {
+  bottom: 0;
+  left: 3.54%;
+  top: 7.84%;
+  right: 0;
+  background-color: var(--color-gainsboro-100);
+}
+.return3 {
+  position: absolute;
+  height: 78.43%;
+  width: 92.04%;
+  top: 7.84%;
+  left: 2.65%;
+  line-height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.return-button3 {
+  position: absolute;
+  top: 750px;
+  left: 581px;
+  width: 113px;
+  height: 51px;
+  font-size: var(--font-size-11xl);
+}
+.next-button-child4 {
+  position: absolute;
+  height: 92.16%;
+  width: 96.46%;
+  top: 7.84%;
+  right: 6.19%;
+  bottom: 0;
+  left: -2.65%;
+  border-radius: var(--br-mini);
+  background-color: var(--color-black);
+  border: 2px solid var(--color-black);
+  box-sizing: border-box;
+}
+.next-button3 {
+  position: absolute;
+  top: 750px;
+  left: 727px;
+  width: 113px;
+  height: 51px;
+  font-size: var(--font-size-11xl);
+}
+.item-16 {
+  position: relative;
+  line-height: 28px;
+}
+.item-1-wrapper3 {
+  background-color: var(--color-white);
+  border: 2px solid var(--color-black);
+  box-sizing: border-box;
+  width: 343px;
+  height: 66px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  padding: var(--padding-3xs);
+  align-items: center;
+  justify-content: center;
+}
+.instance-parent {
+  position: absolute;
+  height: 70.71%;
+  width: 100%;
+  top: 29.29%;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: none;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.select-an-item2 {
+  position: relative;
+  line-height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 287px;
+  height: 68px;
+  flex-shrink: 0;
+}
+.instance-inner {
+  position: relative;
+  width: 31.18px;
+  height: 24.75px;
+  flex-shrink: 0;
+}
+.select-an-item-container {
+  position: absolute;
+  height: 24.29%;
+  width: 100%;
+  top: 0;
+  right: 0;
+  bottom: 75.71%;
+  left: 0;
+  border-radius: var(--br-xl);
+  background-color: var(--color-white);
+  border: 2px solid var(--color-black);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+.education {
+  position: absolute;
+  top: 409px;
+  left: 539px;
+  width: 343px;
+  height: 280px;
+  font-size: var(--font-size-13xl);
+}
+.progress-bar-icon3 {
+  position: absolute;
+  top: 155px;
+  left: 487px;
+  width: 465px;
+  height: 60px;
+}
+.kiss3 {
+  color: var(--color-lightpink);
+}
+.one-kiss3 {
+  position: absolute;
+  top: 20px;
+  left: 40px;
+  font-size: var(--font-size-77xl);
+  font-family: var(--font-lobster);
+}
+.education-aryan {
+  position: relative;
+  background-color: var(--color-mistyrose);
+  width: 100%;
+  height: 1024px;
+  overflow: hidden;
+  text-align: center;
+  font-size: var(--font-size-21xl);
+  color: var(--color-black);
+  font-family: var(--font-dm-sans);
+}
